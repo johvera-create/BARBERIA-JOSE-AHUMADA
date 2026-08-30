@@ -61,10 +61,10 @@ export function Hero() {
           <div className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] tracking-[0.3em] text-sage uppercase">
             <span className="flex items-center gap-3">
               <span className="h-px w-9 bg-blood" />
-              Peluquería de barrio
+              Peluquero a la antigua
             </span>
-            <span>Providencia · Santiago</span>
-            <span className="text-brass">Desde 1998</span>
+            <span>La Calera · V Región</span>
+            <span className="text-brass">Desde 2023</span>
           </div>
 
           <h1 className="font-display text-[17vw] leading-[0.86] tracking-[0.01em] text-flour uppercase sm:text-8xl lg:text-[6.6rem] xl:text-[7.6rem]">
@@ -82,9 +82,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/85">
-            La peluquería de <strong className="font-semibold text-flour">José Ahumada</strong>: 26 años
-            de tijera clásica, degradados al milímetro y afeitado ritual con toalla caliente. Aquí se
-            entra con pelo y se sale con historia.
+            El estudio de <strong className="font-semibold text-flour">José Ahumada</strong>: corte
+            clásico, degradé y perfilado de barba con oficio de peluquería de antes. Atiende en su
+            estudio de la casa, en <strong className="font-semibold text-flour">La Calera</strong> — y
+            si te queda lejos, él va a tu domicilio.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -104,11 +105,11 @@ export function Hero() {
           </div>
 
           <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs tracking-[0.12em] text-sage uppercase">
-            <span className="text-brass">4.9★ en Google</span>
+            <span className="text-brass">4.9★ en reseñas</span>
             <span className="text-blood">◆</span>
-            <span>+84 mil cortes hechos</span>
+            <span>+2.100 cortes hechos</span>
             <span className="text-blood">◆</span>
-            <span>Walk-ins bienvenidos</span>
+            <span>Estudio y a domicilio</span>
           </div>
         </div>
 
@@ -128,7 +129,7 @@ export function Hero() {
                     Peluquería J. Ahumada
                   </p>
                   <p className="mt-1 font-mono text-[10px] tracking-[0.22em] text-ink/55 uppercase">
-                    Providencia · Stgo.
+                    La Calera · V Región
                   </p>
                 </div>
                 <p className="font-mono text-xs font-bold text-blood">Nº 0001</p>
@@ -155,8 +156,12 @@ export function Hero() {
                   <dd className="text-right font-bold text-blood">{nextAvailable()}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Dirección</dt>
-                  <dd className="max-w-[190px] text-right">Av. Providencia 1438, loc. 3</dd>
+                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Estudio</dt>
+                  <dd className="text-right font-bold">En casa · La Calera</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="tracking-[0.18em] text-ink/55 uppercase">¿A domicilio?</dt>
+                  <dd className="text-right font-bold">Sí, se coordina</dd>
                 </div>
               </dl>
             </div>

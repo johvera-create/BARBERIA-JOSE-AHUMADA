@@ -24,8 +24,8 @@ export const CATEGORIES: Category[] = [
     titulo: "Los clásicos",
     nota: "Tijera, máquina y conversación",
     services: [
-      { id: "clasico", nombre: "Corte clásico", desc: "Tijera y máquina, peinado incluido", dur: 30, precio: 9000 },
-      { id: "fade", nombre: "Degradado / fade", desc: "Al gusto: bajo, medio o a la piel", dur: 40, precio: 11000, hot: true },
+      { id: "clasico", nombre: "Corte clásico", desc: "Tijera y máquina, peinado incluido", dur: 30, precio: 10000 },
+      { id: "fade", nombre: "Corte degradé", desc: "Al gusto: bajo, medio o a la piel", dur: 40, precio: 12000, hot: true },
       { id: "nino", nombre: "Corte cabro chico", desc: "Hasta 12 años, con paciencia de abuelo", dur: 25, precio: 7000 },
       { id: "lavado", nombre: "Lavado y peinado", desc: "Masaje capilar de propina", dur: 15, precio: 4000 },
     ],
@@ -56,7 +56,7 @@ export const CATEGORIES: Category[] = [
     titulo: "Packs de la casa",
     nota: "Salga como nuevo, pagando menos",
     services: [
-      { id: "completo", nombre: "El Completo", desc: "Corte + barba + cejas + lavado", dur: 75, precio: 19000, hot: true },
+      { id: "completo", nombre: "El Completo", desc: "Corte + barba + cejas + lavado", dur: 75, precio: 20000, hot: true },
       { id: "padrehijo", nombre: "Padre e hijo", desc: "Dos cortes, una foto pal recuerdo", dur: 55, precio: 15000 },
       { id: "novio", nombre: "El Novio", desc: "Corte + afeitado ritual + retoque día B", dur: 90, precio: 28000 },
     ],
@@ -67,7 +67,7 @@ export const ALL_SERVICES: Service[] = CATEGORIES.flatMap((c) => c.services);
 
 /* ---------------- barberos ---------------- */
 
-export interface Barber {
+export interface Modality {
   id: string;
   nombre: string;
   alias: string;
@@ -75,10 +75,9 @@ export interface Barber {
   iniciales: string;
 }
 
-export const BARBERS: Barber[] = [
-  { id: "jose", nombre: "José Ahumada", alias: "El Patrón", desc: "26 años de oficio. Tijera clásica y afeitado ritual.", iniciales: "JA" },
-  { id: "nico", nombre: "Nicolás Reyes", alias: "Manos Finas", desc: "El rey del fade. Degradados al milímetro.", iniciales: "NR" },
-  { id: "any", nombre: "Sin preferencia", alias: "El primero libre", desc: "Te atiende quien esté disponible antes.", iniciales: "··" },
+export const MODALITIES: Modality[] = [
+  { id: "estudio", nombre: "En el estudio", alias: "La Calera", desc: "En el estudio de la casa: sillón cómodo, buen café y cero apuro.", iniciales: "ES" },
+  { id: "domicilio", nombre: "A domicilio", alias: "José va a ti", desc: "Atención en tu casa por La Calera y alrededores. El traslado se coordina al agendar.", iniciales: "AD" },
 ];
 
 /* ---------------- horarios ---------------- */
@@ -100,7 +99,7 @@ export const HOURS: DayHours[] = [
   { d: 0, label: "Domingo", open: null, close: null },
 ];
 
-export const ADDRESS = "Av. Providencia 1438, local 3 · Providencia, Santiago";
+export const ADDRESS = "Estudio en casa · La Calera, Región de Valparaíso (la dirección exacta se entrega al confirmar tu hora)";
 export const PHONE = "+56 9 8765 4321";
 export const PHONE_WA = "56987654321";
 
@@ -245,7 +244,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     nombre: "Rodrigo Salinas",
-    detalle: "Cliente desde 2009",
+    detalle: "Cliente desde el 2023",
     texto:
       "Llegué por un corte apurado antes de una entrevista y salí con fade, barba perfilada y una clase magistral de fútbol chileno. La entrevista la pasé igual, pero el corte ayudó harto.",
     servicio: "El Completo",
@@ -255,13 +254,13 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     nombre: "Matías Fuentes",
     detalle: "Cada 3 semanas, sagrado",
-    texto: "El Nico te deja el fade tan limpio que da pena mojarse el pelo. Reserva con tiempo porque se llena.",
+    texto: "José te deja el degradé tan limpio que da pena mojarse el pelo. Agenda con tiempo, que la libreta se llena.",
     servicio: "Degradado / fade",
     stars: 5,
   },
   {
     nombre: "Hernán Contreras",
-    detalle: "Vecino del barrio",
+    detalle: "Vecino de La Calera",
     texto: "El afeitado a navaja con toalla caliente es lo más cercano a un spa que va a conocer este huaso. Salí como nuevo.",
     servicio: "Afeitado clásico",
     stars: 5,
@@ -269,7 +268,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     nombre: "Camila Órdenes",
     detalle: "Llevó a su papá",
-    texto: "Llevé a mi papá por su cumpleaños y lo atendieron como rey. Café, conversación y un camuflaje de canas que quedó invisible.",
+    texto: "Llevé a mi papá por su cumpleaños y José lo atendió como rey. Café, conversación y un camuflaje de canas que quedó invisible.",
     servicio: "Camuflaje de canas",
     stars: 5,
   },
@@ -283,8 +282,8 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const STATS = [
-  { value: 26, suffix: "", label: "años de oficio" },
-  { value: 84500, suffix: "+", label: "cortes y contando" },
-  { value: 3, suffix: "", label: "sillones de cuero" },
-  { value: 4.9, suffix: "★", label: "promedio en Google", decimal: true },
+  { value: 2023, suffix: "", label: "nació el estudio", fixed: true },
+  { value: 2100, suffix: "+", label: "cortes y contando" },
+  { value: 2, suffix: "", label: "modalidades: estudio y a domicilio" },
+  { value: 4.9, suffix: "★", label: "promedio en reseñas", decimal: true },
 ];

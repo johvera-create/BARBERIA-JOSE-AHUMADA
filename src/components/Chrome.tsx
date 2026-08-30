@@ -126,7 +126,7 @@ export function Nav() {
           <span className="leading-none">
             <span className="font-display block text-lg tracking-[0.06em] text-flour">JOSÉ AHUMADA</span>
             <span className="mt-1 block font-mono text-[10px] tracking-[0.3em] text-sage uppercase">
-              Peluquero · Est. 1998
+              Peluquero · Est. 2023
             </span>
           </span>
         </a>
@@ -204,13 +204,13 @@ export function Footer() {
               <div>
                 <p className="font-display text-2xl tracking-[0.05em] text-flour">JOSÉ AHUMADA</p>
                 <p className="mt-1 font-mono text-[10px] tracking-[0.3em] text-sage uppercase">
-                  Peluquero · desde 1998
+                  Peluquero · desde 2023
                 </p>
               </div>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-sage">
-              Peluquería de barrio con oficio de sobra: tijera clásica, navaja caliente y la mejor
-              conversación de Providencia. Tres sillones, un patrón y cero apuro.
+              Estudio en casa con oficio de peluquería de antes: tijera clásica, degradé fino y buena
+              conversación. Un sillón en La Calera — y si no puedes venir, José va a tu domicilio.
             </p>
             <div className="mt-6 flex gap-5 font-mono text-xs tracking-[0.18em] uppercase">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-bone/70 transition-colors hover:text-brass">

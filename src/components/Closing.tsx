@@ -114,10 +114,10 @@ function MiniMap() {
         <rect x="18" y="112" width="54" height="60" />
       </g>
       <text x="12" y="92" fill="#ede3cb" opacity="0.55" fontSize="10" fontFamily="Space Mono, monospace" letterSpacing="2">
-        AV. PROVIDENCIA
+        ARTURO PRAT
       </text>
       <text x="256" y="178" fill="#93a89a" opacity="0.6" fontSize="8" fontFamily="Space Mono, monospace" letterSpacing="1.5">
-        GRAL. SALVO
+        DIEGO LILLO
       </text>
       {/* pin */}
       <circle cx="200" cy="94" r="16" fill="none" stroke="#ce3a28" strokeWidth="2" className="pin-pulse" />
@@ -145,7 +145,7 @@ export function Visit() {
               La silla te <span className="text-blood">espera</span>
             </>
           }
-          note="Walk-ins bienvenidos cuando hay sillón libre. Si vienes lejos, mejor agenda y te guardamos el puesto."
+          note="Atención con hora agendada: en el estudio de la casa o a domicilio por La Calera. Agenda y te guardamos el puesto."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
@@ -206,7 +206,7 @@ export function Visit() {
               <MiniMap />
               <p className="mt-5 text-sm leading-relaxed text-bone/85">{ADDRESS}</p>
               <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-sage uppercase">
-                A 2 cuadras de Metro Los Leones · Estacionamiento en Gral. Salvo
+                La dirección exacta del estudio llega al confirmar · ¿Lejos? José va a domicilio
               </p>
               <div className="mt-auto flex flex-wrap gap-3 pt-7">
                 <a
@@ -224,7 +224,7 @@ export function Visit() {
                   <Chat className="w-4" /> WhatsApp
                 </a>
                 <a
-                  href="https://maps.google.com/?q=Av.+Providencia+1438,+Providencia,+Santiago"
+                  href="https://maps.google.com/?q=La+Calera,+Valpara%C3%ADso,+Chile"
                   target="_blank"
                   rel="noreferrer"
                   className="group flex items-center gap-2 border border-bone/30 px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"

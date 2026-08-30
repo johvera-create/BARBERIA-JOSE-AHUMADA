@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  BARBERS,
+  MODALITIES,
   CATEGORIES,
   formatCLP,
   getDays,
   getSlots,
   longDate,
   makeCode,
-  type Barber,
+  type Modality,
   type DayInfo,
   type Service,
 } from "../data";
@@ -20,8 +20,8 @@ interface Booking {
   code: string;
   serviceId: string;
   serviceName: string;
-  barberId: string;
-  barberName: string;
+  modalityId: string;
+  modalityName: string;
   dayLabel: string;
   dayISO: string;
   time: string;
@@ -97,7 +97,7 @@ function Ticket({
           {(
             [
               ["Servicio", b.serviceName],
-              ["Barbero", b.barberName],
+              ["Modalidad", b.modalityName],
               ["Día", b.dayLabel],
               ["Hora", b.time],
               ["Duración", b.dur ? `${b.dur} min` : undefined],
@@ -143,14 +143,14 @@ function Ticket({
 }
 
 /* ---------------- pasos ---------------- */
-const STEPS = ["Servicio", "Barbero", "Día y hora", "Tus datos"];
+const STEPS = ["Servicio", "Modalidad", "Día y hora", "Tus datos"];
 
 export function Booking() {
   const days = useMemo(() => getDays(8).filter((d) => d.hours.open !== null), []);
 
   const [step, setStep] = useState(0);
   const [service, setService] = useState<Service | null>(null);
-  const [barber, setBarber] = useState<Barber | null>(null);
+  const [barber, setBarber] = useState<Modality | null>(null);
   const [day, setDay] = useState<DayInfo | null>(null);
   const [time, setTime] = useState<string | null>(null);
   const [nombre, setNombre] = useState("");
@@ -171,7 +171,7 @@ export function Booking() {
   const slots = useMemo(() => {
     if (!day || !barber) return [];
     const mine = saved
-      .filter((b) => b.dayISO === day.iso && b.barberId === barber.id)
+      .filter((b) => b.dayISO === day.iso && b.modalityId === barber.id)
       .map((b) => b.time);
     return getSlots(day, barber.id).map((s) => ({
       ...s,
@@ -207,8 +207,8 @@ export function Booking() {
       code: makeCode(),
       serviceId: service.id,
       serviceName: service.nombre,
-      barberId: barber.id,
-      barberName: barber.id === "any" ? "El primero libre" : barber.nombre,
+      modalityId: barber.id,
+      modalityName: barber.nombre,
       dayLabel: longDate(day.date),
       dayISO: day.iso,
       time,
@@ -243,7 +243,7 @@ export function Booking() {
   const sel: Partial<Booking> = {
     code: confirmed?.code,
     serviceName: service?.nombre,
-    barberName: barber ? (barber.id === "any" ? "El primero libre" : barber.nombre) : undefined,
+    modalityName: barber ? barber.nombre : undefined,
     dayLabel: day ? longDate(day.date) : undefined,
     time: time ?? undefined,
     dur: service?.dur,
@@ -262,7 +262,7 @@ export function Booking() {
               Agenda tu <span className="text-blood">hora</span>
             </>
           }
-          note="Eliges servicio, barbero y horario; nosotros guardamos el sillón. Sin llamadas, sin esperas, sin drama."
+          note="Eliges servicio, modalidad y horario; José te guarda el sillón. En el estudio de La Calera o en tu propia casa."
         />
 
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_400px] lg:gap-14">
@@ -310,12 +310,13 @@ export function Booking() {
                     ¡Listo, {confirmed.nombre.split(" ")[0]}!
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-sage">
-                    Tu hora está guardada en la libreta de la casa:{" "}
+                    Tu hora está guardada en la libreta:{" "}
                     <strong className="text-flour">{confirmed.serviceName}</strong> el{" "}
                     <strong className="text-flour">{confirmed.dayLabel}</strong> a las{" "}
-                    <strong className="text-brass">{confirmed.time}</strong> con{" "}
-                    <strong className="text-flour">{confirmed.barberName}</strong>. Te escribiremos por
-                    WhatsApp el mismo día para recordar.
+                    <strong className="text-brass">{confirmed.time}</strong>.{" "}
+                    {confirmed.modalityId === "domicilio"
+                      ? "José irá a tu domicilio — te escribimos por WhatsApp para coordinar la dirección."
+                      : "Te esperamos en el estudio de La Calera — la dirección exacta te llega por WhatsApp."}
                   </p>
                   <p className="mt-4 font-mono text-xs tracking-[0.2em] text-blood uppercase">
                     Código de reserva: {confirmed.code}
@@ -375,7 +376,7 @@ export function Booking() {
               ) : step === 1 ? (
                 /* -------- barbero -------- */
                 <div className="space-y-3">
-                  {BARBERS.map((b) => {
+                  {MODALITIES.map((b: Modality) => {
                     const on = barber?.id === b.id;
                     return (
                       <button
@@ -483,8 +484,8 @@ export function Booking() {
                         <span className="flex items-center gap-2">
                           <span className="h-2.5 w-2.5 bg-fern/40" /> Ocupado
                         </span>
-                        {barber?.id === "any" && (
-                          <span className="text-brass normal-case">Sin preferencia: te toma el primero libre.</span>
+                        {barber?.id === "domicilio" && (
+                          <span className="text-brass normal-case">A domicilio: José coordina contigo la dirección y el traslado.</span>
                         )}
                       </div>
                     </>
@@ -545,9 +546,9 @@ export function Booking() {
                         <span className="text-right font-bold">{service?.nombre}</span>
                       </li>
                       <li className="flex justify-between gap-4">
-                        <span className="text-sage">Barbero</span>
+                        <span className="text-sage">Modalidad</span>
                         <span className="text-right font-bold">
-                          {barber ? (barber.id === "any" ? "El primero libre" : barber.nombre) : ""}
+                          {barber ? barber.nombre : ""}
                         </span>
                       </li>
                       <li className="flex justify-between gap-4">
@@ -620,7 +621,7 @@ export function Booking() {
                       <div className="min-w-0">
                         <p className="truncate text-sm font-semibold text-flour">{b.serviceName}</p>
                         <p className="mt-0.5 font-mono text-[11px] text-sage">
-                          {b.dayLabel} · <span className="text-brass">{b.time}</span> · {b.barberName}
+                          {b.dayLabel} · <span className="text-brass">{b.time}</span> · {b.modalityName}
                         </p>
                       </div>
                       <button
