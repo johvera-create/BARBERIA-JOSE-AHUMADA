@@ -209,8 +209,9 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-sage">
-              Estudio en casa con oficio de peluquería de antes: tijera clásica, degradé fino y buena
-              conversación. Un sillón en La Calera — y si no puedes venir, José va a tu domicilio.
+              Barbería con oficio de peluquería de antes: tijera clásica, degradé fino y buena
+              conversación. Estamos en Aldunate 363, La Calera — y si no puedes venir, José va a tu
+              casa a domicilio.
             </p>
             <div className="mt-6 flex gap-5 font-mono text-xs tracking-[0.18em] uppercase">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-bone/70 transition-colors hover:text-brass">

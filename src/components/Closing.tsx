@@ -145,7 +145,7 @@ export function Visit() {
               La silla te <span className="text-blood">espera</span>
             </>
           }
-          note="Atención con hora agendada: en el estudio de la casa o a domicilio por La Calera. Agenda y te guardamos el puesto."
+          note="Atención con hora agendada: en la barbería de Aldunate 363, La Calera, o a domicilio en tu casa. Agenda y te guardamos el puesto."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
@@ -206,7 +206,7 @@ export function Visit() {
               <MiniMap />
               <p className="mt-5 text-sm leading-relaxed text-bone/85">{ADDRESS}</p>
               <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-sage uppercase">
-                La dirección exacta del estudio llega al confirmar · ¿Lejos? José va a domicilio
+                Pleno centro de La Calera · ¿Te queda lejos? José va a tu casa a domicilio
               </p>
               <div className="mt-auto flex flex-wrap gap-3 pt-7">
                 <a
@@ -224,7 +224,7 @@ export function Visit() {
                   <Chat className="w-4" /> WhatsApp
                 </a>
                 <a
-                  href="https://maps.google.com/?q=La+Calera,+Valpara%C3%ADso,+Chile"
+                  href="https://maps.google.com/?q=Aldunate+363,+La+Calera,+Valpara%C3%ADso,+Chile"
                   target="_blank"
                   rel="noreferrer"
                   className="group flex items-center gap-2 border border-bone/30 px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"

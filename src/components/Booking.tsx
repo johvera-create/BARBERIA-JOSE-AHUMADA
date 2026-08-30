@@ -262,7 +262,7 @@ export function Booking() {
               Agenda tu <span className="text-blood">hora</span>
             </>
           }
-          note="Eliges servicio, modalidad y horario; José te guarda el sillón. En el estudio de La Calera o en tu propia casa."
+          note="Eliges servicio, modalidad y horario; José te guarda el sillón. En la barbería de Aldunate 363, La Calera — o en tu propia casa."
         />
 
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_400px] lg:gap-14">
@@ -315,8 +315,8 @@ export function Booking() {
                     <strong className="text-flour">{confirmed.dayLabel}</strong> a las{" "}
                     <strong className="text-brass">{confirmed.time}</strong>.{" "}
                     {confirmed.modalityId === "domicilio"
-                      ? "José irá a tu domicilio — te escribimos por WhatsApp para coordinar la dirección."
-                      : "Te esperamos en el estudio de La Calera — la dirección exacta te llega por WhatsApp."}
+                      ? "José irá a tu casa — te escribimos por WhatsApp para coordinar la dirección."
+                      : "Te esperamos en la barbería: Aldunate 363, La Calera."}
                   </p>
                   <p className="mt-4 font-mono text-xs tracking-[0.2em] text-blood uppercase">
                     Código de reserva: {confirmed.code}
@@ -485,7 +485,7 @@ export function Booking() {
                           <span className="h-2.5 w-2.5 bg-fern/40" /> Ocupado
                         </span>
                         {barber?.id === "domicilio" && (
-                          <span className="text-brass normal-case">A domicilio: José coordina contigo la dirección y el traslado.</span>
+                          <span className="text-brass normal-case">A domicilio: José va a tu casa y coordina la dirección contigo.</span>
                         )}
                       </div>
                     </>

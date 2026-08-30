@@ -82,10 +82,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/85">
-            El estudio de <strong className="font-semibold text-flour">José Ahumada</strong>: corte
-            clásico, degradé y perfilado de barba con oficio de peluquería de antes. Atiende en su
-            estudio de la casa, en <strong className="font-semibold text-flour">La Calera</strong> — y
-            si te queda lejos, él va a tu domicilio.
+            El peluquero <strong className="font-semibold text-flour">José Ahumada</strong>: corte
+            clásico, degradé y perfilado de barba con oficio de antes. Atiende en su barbería de{" "}
+            <strong className="font-semibold text-flour">La Calera, Aldunate 363</strong> — y si te
+            queda lejos, él va a tu casa <strong className="font-semibold text-flour">a domicilio</strong>.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -109,7 +109,7 @@ export function Hero() {
             <span className="text-blood">◆</span>
             <span>+2.100 cortes hechos</span>
             <span className="text-blood">◆</span>
-            <span>Estudio y a domicilio</span>
+            <span>Barbería y a domicilio</span>
           </div>
         </div>
 
@@ -156,12 +156,12 @@ export function Hero() {
                   <dd className="text-right font-bold text-blood">{nextAvailable()}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Estudio</dt>
-                  <dd className="text-right font-bold">En casa · La Calera</dd>
+                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Barbería</dt>
+                  <dd className="text-right font-bold">Aldunate 363 · La Calera</dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="tracking-[0.18em] text-ink/55 uppercase">¿A domicilio?</dt>
-                  <dd className="text-right font-bold">Sí, se coordina</dd>
+                  <dd className="text-right font-bold">Sí, va a tu casa</dd>
                 </div>
               </dl>
             </div>

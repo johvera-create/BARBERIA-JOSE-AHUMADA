@@ -76,8 +76,8 @@ export interface Modality {
 }
 
 export const MODALITIES: Modality[] = [
-  { id: "estudio", nombre: "En el estudio", alias: "La Calera", desc: "En el estudio de la casa: sillón cómodo, buen café y cero apuro.", iniciales: "ES" },
-  { id: "domicilio", nombre: "A domicilio", alias: "José va a ti", desc: "Atención en tu casa por La Calera y alrededores. El traslado se coordina al agendar.", iniciales: "AD" },
+  { id: "barberia", nombre: "En la barbería", alias: "Aldunate 363", desc: "En el local de La Calera, Aldunate 363: sillón, buen café y cero apuro.", iniciales: "LC" },
+  { id: "domicilio", nombre: "A domicilio", alias: "José va a ti", desc: "José va a tu casa por La Calera y alrededores. El traslado se coordina al agendar.", iniciales: "AD" },
 ];
 
 /* ---------------- horarios ---------------- */
@@ -99,7 +99,7 @@ export const HOURS: DayHours[] = [
   { d: 0, label: "Domingo", open: null, close: null },
 ];
 
-export const ADDRESS = "Estudio en casa · La Calera, Región de Valparaíso (la dirección exacta se entrega al confirmar tu hora)";
+export const ADDRESS = "Aldunate 363 · La Calera, Región de Valparaíso";
 export const PHONE = "+56 9 8765 4321";
 export const PHONE_WA = "56987654321";
 
@@ -282,8 +282,8 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const STATS = [
-  { value: 2023, suffix: "", label: "nació el estudio", fixed: true },
+  { value: 2023, suffix: "", label: "nació la barbería", fixed: true },
   { value: 2100, suffix: "+", label: "cortes y contando" },
-  { value: 2, suffix: "", label: "modalidades: estudio y a domicilio" },
+  { value: 2, suffix: "", label: "modalidades: barbería y a domicilio" },
   { value: 4.9, suffix: "★", label: "promedio en reseñas", decimal: true },
 ];

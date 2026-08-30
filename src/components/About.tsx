@@ -64,7 +64,7 @@ export function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
               <p className="absolute bottom-4 left-5 font-mono text-[10px] tracking-[0.26em] text-bone/80 uppercase">
-                El estudio · La Calera
+                La barbería · Aldunate 363
               </p>
             </div>
             <figure className="absolute -right-4 -bottom-10 w-44 rotate-3 bg-flour p-2.5 pb-8 shadow-[0_20px_50px_rgba(0,0,0,0.55)] transition-transform duration-500 hover:rotate-0 sm:-right-8 sm:w-56">
@@ -86,23 +86,24 @@ export function About() {
               kicker="La casa"
               title={
                 <>
-                  Un estudio en la casa, <span className="text-blood">hecho a pulso</span>
+                  Una barbería propia, <span className="text-blood">hecha a pulso</span>
                 </>
               }
             />
             <div className="space-y-5 text-[15px] leading-relaxed text-bone/85">
               <p>
                 En <strong className="font-semibold text-flour">2023</strong>, José Ahumada cumplió el
-                sueño pendiente: montar su propio estudio en la casa, en{" "}
+                sueño pendiente: abrir su propia barbería en{" "}
                 <strong className="font-semibold text-flour">La Calera</strong>. Un sillón, su máquina
                 de toda la vida y una convicción — cortar como en las peluquerías de antes, mirando a
                 la cara al cliente y sin plantillas.
               </p>
               <p>
-                Hoy la libreta se llena semana a semana, y cuando el cliente no puede llegar, el
+                Hoy la barbería está en <strong className="font-semibold text-flour">Aldunate 363</strong>{" "}
+                y la libreta se llena semana a semana. Y cuando el cliente no puede llegar, el
                 peluquero llega a él: <strong className="font-semibold text-flour">José atiende a
-                domicilio</strong> por La Calera y alrededores. Cambia el lugar, no el trato: café
-                pasado, toalla caliente y cero apuro.
+                domicilio</strong>, yendo directo a tu casa por La Calera y alrededores. Cambia el
+                lugar, no el trato: café pasado, toalla caliente y cero apuro.
               </p>
             </div>
 
