@@ -1,1 +1,276 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0d1712;
+  --color-pine: #121f18;
+  --color-moss: #1a2e22;
+  --color-fern: #2b4a37;
+  --color-sage: #93a89a;
+  --color-bone: #ede3cb;
+  --color-flour: #f6efdc;
+  --color-blood: #ce3a28;
+  --color-brass: #d8a23c;
+  --color-steel: #2c4a63;
+
+  --font-display: "Anton", "Archivo", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-blood);
+  color: var(--color-flour);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1712;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b4a37;
+  border: 3px solid #0d1712;
+  border-radius: 8px;
+}
+
+/* ---------- textures ---------- */
+.pinstripe {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(237, 227, 203, 0.028) 0px,
+    rgba(237, 227, 203, 0.028) 1px,
+    transparent 1px,
+    transparent 46px
+  );
+}
+.checkerline {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(237, 227, 203, 0.03) 0px,
+    rgba(237, 227, 203, 0.03) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+}
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(237, 227, 203, 0.26);
+}
+.text-outline-blood {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(206, 58, 40, 0.75);
+}
+
+/* ---------- reveal on scroll ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s cubic-bezier(0.2, 0.65, 0.25, 1),
+    transform 0.85s cubic-bezier(0.2, 0.65, 0.25, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- line mask reveal (hero) ---------- */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(112%);
+  animation: lineup 0.95s cubic-bezier(0.16, 0.84, 0.27, 1) forwards;
+  animation-delay: var(--ml-delay, 0ms);
+}
+@keyframes lineup {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ---------- barber pole ---------- */
+.pole-stripes {
+  background: repeating-linear-gradient(
+    135deg,
+    #ce3a28 0px,
+    #ce3a28 14px,
+    #f6efdc 14px,
+    #f6efdc 28px,
+    #2c4a63 28px,
+    #2c4a63 42px,
+    #f6efdc 42px,
+    #f6efdc 56px
+  );
+  background-size: 100% 100%;
+  animation: polespin 3.4s linear infinite;
+}
+@keyframes polespin {
+  to {
+    background-position: 0 79.2px;
+  }
+}
+
+/* ---------- marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- ken burns breathing ---------- */
+.kenburns img {
+  animation: kb 22s ease-in-out infinite alternate;
+}
+@keyframes kb {
+  from {
+    transform: scale(1.04) translate(0.6%, 0.8%);
+  }
+  to {
+    transform: scale(1.16) translate(-1.2%, -1%);
+  }
+}
+
+/* ---------- misc motion ---------- */
+.spin-slow {
+  animation: spinsl 24s linear infinite;
+}
+@keyframes spinsl {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blink-dot {
+  animation: blinkd 1.6s ease-in-out infinite;
+}
+@keyframes blinkd {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.stamp-in {
+  animation: stampin 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+@keyframes stampin {
+  from {
+    opacity: 0;
+    transform: scale(1.9) rotate(-18deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-8deg);
+  }
+}
+
+.ticket-in {
+  animation: ticketin 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+@keyframes ticketin {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotate(1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pin-pulse {
+  animation: pinpulse 2.2s ease-out infinite;
+  transform-origin: center;
+}
+@keyframes pinpulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.4);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* ---------- form fields ---------- */
+.field {
+  width: 100%;
+  background: var(--color-pine);
+  border: 1px solid var(--color-fern);
+  color: var(--color-flour);
+  padding: 0.72rem 0.95rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.field::placeholder {
+  color: rgba(147, 168, 154, 0.55);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-brass);
+  background: var(--color-moss);
+}
+
+/* ---------- dotted price leaders ---------- */
+.leader {
+  flex: 1 1 auto;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted rgba(237, 227, 203, 0.3);
+  transform: translateY(-0.35em);
+  margin: 0 0.55rem;
+  transition: border-color 0.25s;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track,
+  .pole-stripes,
+  .kenburns img,
+  .spin-slow,
+  .blink-dot {
+    animation: none !important;
+  }
+  .rv,
+  .mask-line > span {
+    transition: none;
+    animation-duration: 0.01ms !important;
+    opacity: 1;
+    transform: none;
+  }
+}
