@@ -22,10 +22,10 @@ function RotatingStamp() {
   return (
     <a
       href="#agenda"
-      className="group absolute -bottom-9 -left-7 z-10 hidden sm:block lg:-left-14"
+      className="group absolute -bottom-8 -right-6 z-20 hidden sm:block md:-bottom-9 md:-right-8"
       aria-label="Agendar hora"
     >
-      <svg viewBox="0 0 120 120" className="spin-slow h-28 w-28">
+      <svg viewBox="0 0 120 120" className="spin-slow h-24 w-24 md:h-28 md:w-28">
         <defs>
           <path id="stampcircle" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" />
         </defs>
@@ -35,7 +35,7 @@ function RotatingStamp() {
           <textPath href="#stampcircle">AGENDA TU HORA • SIN FILAS • LLEGASTE •</textPath>
         </text>
       </svg>
-      <Scissors className="absolute top-1/2 left-1/2 w-7 -translate-x-1/2 -translate-y-1/2 text-flour transition-transform duration-300 group-hover:rotate-45" />
+      <Scissors className="absolute top-1/2 left-1/2 w-6 md:w-7 -translate-x-1/2 -translate-y-1/2 text-flour transition-transform duration-300 group-hover:rotate-45" />
     </a>
   );
 }
