@@ -6,8 +6,8 @@ import { Reveal, SectionHead } from "./Chrome";
 /* ---------------- la clientela ---------------- */
 export function Testimonials() {
   return (
-    <section id="clientela" className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="clientela" className="relative py-16 sm:py-20 lg:py-28 xl:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
           kicker="La clientela"
           title={
@@ -136,8 +136,8 @@ export function Visit() {
   const todayIdx = now.getDay();
 
   return (
-    <section id="visita" className="checkerline relative border-t border-fern/40 bg-pine py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="visita" className="checkerline relative border-t border-fern/40 bg-pine py-16 sm:py-20 lg:py-28 xl:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
           kicker="Visítanos"
           title={
@@ -151,13 +151,13 @@ export function Visit() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* horarios */}
           <Reveal>
-            <div className="h-full border border-fern/60 bg-ink/60 p-7 sm:p-9">
-              <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
-                <h3 className="font-display flex items-center gap-3 text-2xl tracking-wide text-flour uppercase">
-                  <Clock className="w-6 text-brass" /> Horarios
+            <div className="h-full border border-fern/60 bg-ink/60 p-5 sm:p-7 md:p-9">
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-3 sm:mb-7 sm:gap-4">
+                <h3 className="font-display flex items-center gap-3 text-xl tracking-wide text-flour uppercase sm:text-2xl">
+                  <Clock className="w-5 text-brass sm:w-6" /> Horarios
                 </h3>
                 <span
-                  className={`flex items-center gap-2 border px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.18em] uppercase ${
+                  className={`flex items-center gap-2 border px-2.5 py-1 font-mono text-[9px] font-bold tracking-[0.16em] uppercase sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.18em] ${
                     state.open ? "border-fern text-brass" : "border-blood/60 text-blood"
                   }`}
                 >
@@ -171,11 +171,11 @@ export function Visit() {
                   return (
                     <li
                       key={h.d}
-                      className={`flex items-center justify-between gap-4 border-b border-fern/30 py-3 font-mono text-sm transition-colors ${
+                      className={`flex items-center justify-between gap-4 border-b border-fern/30 py-2.5 font-mono text-xs sm:py-3 sm:text-sm transition-colors ${
                         isToday ? "bg-moss/60 px-3 text-flour" : "text-bone/75"
                       }`}
                     >
-                      <span className="flex items-center gap-3 tracking-[0.12em] uppercase">
+                      <span className="flex items-center gap-2 sm:gap-3 tracking-[0.12em] uppercase">
                         {isToday && <span className="blink-dot h-2 w-2 rounded-full bg-blood" />}
                         {h.label}
                         {isToday && (
@@ -191,7 +191,7 @@ export function Visit() {
                   );
                 })}
               </ul>
-              <p className="mt-6 font-mono text-[11px] leading-relaxed tracking-[0.1em] text-sage uppercase">
+              <p className="mt-5 font-mono text-[10px] leading-relaxed tracking-[0.1em] text-sage uppercase sm:mt-6 sm:text-[11px]">
                 * La última hora se agenda 45 min antes del cierre.
               </p>
             </div>
@@ -199,19 +199,19 @@ export function Visit() {
 
           {/* ubicación */}
           <Reveal delay={120}>
-            <div className="flex h-full flex-col border border-fern/60 bg-ink/60 p-7 sm:p-9">
-              <h3 className="font-display mb-5 flex items-center gap-3 text-2xl tracking-wide text-flour uppercase">
-                <Pin className="w-6 text-brass" /> Dónde estamos
+            <div className="flex h-full flex-col border border-fern/60 bg-ink/60 p-5 sm:p-7 md:p-9">
+              <h3 className="font-display mb-4 flex items-center gap-3 text-xl tracking-wide text-flour uppercase sm:mb-5 sm:text-2xl">
+                <Pin className="w-5 text-brass sm:w-6" /> Dónde estamos
               </h3>
               <MiniMap />
-              <p className="mt-5 text-sm leading-relaxed text-bone/85">{ADDRESS}</p>
-              <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-sage uppercase">
+              <p className="mt-4 text-sm leading-relaxed text-bone/85 sm:mt-5">{ADDRESS}</p>
+              <p className="mt-2 font-mono text-[10px] tracking-[0.12em] text-sage uppercase sm:text-[11px] sm:tracking-[0.14em]">
                 Pleno centro de La Calera · ¿Te queda lejos? José va a tu casa a domicilio
               </p>
-              <div className="mt-auto flex flex-wrap gap-3 pt-7">
+              <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row sm:flex-wrap sm:pt-7">
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 border border-bone/30 px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-brass hover:text-brass"
+                  className="flex items-center justify-center gap-2 border border-bone/30 px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-brass hover:text-brass"
                 >
                   <Chat className="w-4" /> {PHONE}
                 </a>
@@ -219,7 +219,7 @@ export function Visit() {
                   href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent("Hola, vengo del sitio web 👋")}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 bg-brass px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(216,162,60,0.3)]"
+                  className="flex items-center justify-center gap-2 bg-brass px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(216,162,60,0.3)]"
                 >
                   <Chat className="w-4" /> WhatsApp
                 </a>
@@ -227,7 +227,7 @@ export function Visit() {
                   href="https://maps.google.com/?q=Aldunate+363,+La+Calera,+Valpara%C3%ADso,+Chile"
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center gap-2 border border-bone/30 px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"
+                  className="group flex items-center justify-center gap-2 border border-bone/30 px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"
                 >
                   Cómo llegar
                   <ArrowRight className="w-4 transition-transform group-hover:translate-x-1" />

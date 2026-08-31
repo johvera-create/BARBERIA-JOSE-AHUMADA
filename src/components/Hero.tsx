@@ -55,19 +55,19 @@ export function Hero() {
         JA
       </p>
 
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 pt-32 pb-20 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:gap-10 lg:pt-40 lg:pb-24">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-20 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:gap-10 lg:pt-36 lg:pb-24 xl:pt-40">
         {/* ---- columna tipográfica ---- */}
         <div>
-          <div className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] tracking-[0.3em] text-sage uppercase">
-            <span className="flex items-center gap-3">
-              <span className="h-px w-9 bg-blood" />
+          <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.25em] text-sage uppercase sm:mb-7 sm:gap-x-5 sm:text-[11px] sm:tracking-[0.3em]">
+            <span className="flex items-center gap-2 sm:gap-3">
+              <span className="h-px w-6 bg-blood sm:w-9" />
               Peluquero a la antigua
             </span>
             <span>La Calera · V Región</span>
             <span className="text-brass">Desde 2023</span>
           </div>
 
-          <h1 className="font-display text-[17vw] leading-[0.86] tracking-[0.01em] text-flour uppercase sm:text-8xl lg:text-[6.6rem] xl:text-[7.6rem]">
+          <h1 className="font-display text-[15vw] leading-[0.88] tracking-[0.01em] text-flour uppercase xs:text-[14vw] sm:text-7xl md:text-8xl lg:text-[5.5rem] xl:text-[6.8rem] 2xl:text-[7.4rem]">
             <span className="mask-line" style={{ "--ml-delay": "80ms" } as CSSProperties}>
               <span>Corte,</span>
             </span>
@@ -81,30 +81,30 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/85">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-bone/85 sm:mt-8 sm:text-lg">
             El peluquero <strong className="font-semibold text-flour">José Ahumada</strong>: corte
             clásico, degradé y perfilado de barba con oficio de antes. Atiende en su barbería de{" "}
             <strong className="font-semibold text-flour">La Calera, Aldunate 363</strong> — y si te
             queda lejos, él va a tu casa <strong className="font-semibold text-flour">a domicilio</strong>.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a
               href="#agenda"
-              className="group flex items-center gap-3 border-2 border-blood bg-blood px-7 py-4 font-mono text-sm font-bold tracking-[0.16em] text-flour uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(206,58,40,0.35)] active:translate-y-0"
+              className="group flex items-center justify-center gap-3 border-2 border-blood bg-blood px-6 py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-flour uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(206,58,40,0.35)] active:translate-y-0 sm:px-7 sm:py-4 sm:text-sm"
             >
               Agendar mi hora
               <ArrowRight className="w-4.5 transition-transform duration-300 group-hover:translate-x-1.5" />
             </a>
             <a
               href="#pizarra"
-              className="flex items-center gap-3 border-2 border-bone/30 px-7 py-4 font-mono text-sm tracking-[0.16em] text-bone uppercase transition-all duration-200 hover:border-brass hover:text-brass"
+              className="flex items-center justify-center gap-3 border-2 border-bone/30 px-6 py-3.5 font-mono text-xs tracking-[0.16em] text-bone uppercase transition-all duration-200 hover:border-brass hover:text-brass sm:px-7 sm:py-4 sm:text-sm"
             >
               Ver la pizarra
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs tracking-[0.12em] text-sage uppercase">
+          <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] tracking-[0.1em] text-sage uppercase sm:mt-12 sm:gap-x-5 sm:text-xs sm:tracking-[0.12em]">
             <span className="text-brass">4.9★ en reseñas</span>
             <span className="text-blood">◆</span>
             <span>+2.100 cortes hechos</span>
@@ -114,15 +114,15 @@ export function Hero() {
         </div>
 
         {/* ---- columna del ticket ---- */}
-        <div className="relative flex justify-center lg:justify-end lg:pr-8">
-          <BarberPole className="absolute -top-4 left-0 hidden h-110 w-7 lg:flex" />
+        <div className="relative mt-4 flex justify-center lg:mt-0 lg:justify-end lg:pr-8">
+          <BarberPole className="absolute -top-4 left-0 hidden h-110 w-7 xl:flex" />
 
           <div className="group relative w-full max-w-sm rotate-1 bg-bone text-ink shadow-[0_30px_70px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:rotate-0">
             {/* muescas de ticket */}
             <span className="absolute top-[164px] -left-3.5 h-7 w-7 rounded-full bg-ink" aria-hidden />
             <span className="absolute top-[164px] -right-3.5 h-7 w-7 rounded-full bg-ink" aria-hidden />
 
-            <div className="px-7 pt-7 pb-5">
+            <div className="px-5 pt-6 pb-5 sm:px-7 sm:pt-7">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase">
@@ -166,7 +166,7 @@ export function Hero() {
               </dl>
             </div>
 
-            <div className="border-t-2 border-dashed border-ink/25 px-7 py-5">
+            <div className="border-t-2 border-dashed border-ink/25 px-5 py-5 sm:px-7">
               <a
                 href="#agenda"
                 className="flex w-full items-center justify-center gap-2 bg-ink py-3.5 font-mono text-xs font-bold tracking-[0.24em] text-flour uppercase transition-colors duration-200 hover:bg-blood"
@@ -179,7 +179,7 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="px-7 pb-6">
+            <div className="px-5 pb-6 sm:px-7">
               <TicketBarcode />
             </div>
           </div>

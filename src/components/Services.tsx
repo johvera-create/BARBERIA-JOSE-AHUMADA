@@ -12,8 +12,8 @@ const ICONS: Record<string, ComponentType<{ className?: string }>> = {
 
 export function Services() {
   return (
-    <section id="pizarra" className="checkerline relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="pizarra" className="checkerline relative py-16 sm:py-20 lg:py-28 xl:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
           kicker="La pizarra de precios"
           title={

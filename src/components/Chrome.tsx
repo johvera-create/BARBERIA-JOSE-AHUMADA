@@ -84,13 +84,13 @@ export function SectionHead({
   note?: string;
 }) {
   return (
-    <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
+    <Reveal className="mb-8 flex flex-col items-start justify-between gap-4 sm:mb-12 sm:flex-row sm:items-end sm:gap-6">
       <div>
-        <p className="mb-3 flex items-center gap-3 font-mono text-xs tracking-[0.28em] text-blood uppercase">
-          <span className="h-px w-10 bg-blood" />
+        <p className="mb-2 flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-blood uppercase sm:mb-3 sm:gap-3 sm:text-xs sm:tracking-[0.28em]">
+          <span className="h-px w-6 bg-blood sm:w-10" />
           {kicker}
         </p>
-        <h2 className="font-display text-4xl leading-[0.95] tracking-wide text-flour uppercase sm:text-5xl lg:text-6xl">
+        <h2 className="font-display text-3xl leading-[0.98] tracking-wide text-flour uppercase sm:text-4xl md:text-5xl lg:text-6xl">
           {title}
         </h2>
       </div>

@@ -51,11 +51,11 @@ const RULES = [
 
 export function About() {
   return (
-    <section id="casa" className="relative overflow-hidden py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
+    <section id="casa" className="relative overflow-hidden py-16 sm:py-20 lg:py-28 xl:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           {/* composición fotográfica */}
-          <Reveal className="relative">
+          <Reveal className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
             <div className="kenburns relative aspect-[4/5] overflow-hidden border border-fern/60 shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
               <img
                 src="https://image.qwenlm.ai/generated-images/e5d48b42-cc29-438f-bad2-2a63ee1028c8/_result.png"
@@ -67,17 +67,17 @@ export function About() {
                 La barbería · Aldunate 363
               </p>
             </div>
-            <figure className="absolute -right-4 -bottom-10 w-44 rotate-3 bg-flour p-2.5 pb-8 shadow-[0_20px_50px_rgba(0,0,0,0.55)] transition-transform duration-500 hover:rotate-0 sm:-right-8 sm:w-56">
+            <figure className="absolute -right-2 -bottom-8 w-36 rotate-3 bg-flour p-2 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.55)] transition-transform duration-500 hover:rotate-0 sm:-right-8 sm:-bottom-10 sm:w-56 sm:p-2.5 sm:pb-8">
               <img
                 src="https://image.qwenlm.ai/generated-images/73246300-7af7-4033-871f-aa58398e159b/_result.png"
                 alt="José Ahumada, el patrón"
                 className="aspect-[4/5] w-full object-cover"
               />
-              <figcaption className="mt-2 text-center font-mono text-[10px] tracking-[0.2em] text-ink/65 uppercase">
+              <figcaption className="mt-2 text-center font-mono text-[9px] tracking-[0.16em] text-ink/65 uppercase sm:text-[10px] sm:tracking-[0.2em]">
                 El patrón, tijera en mano
               </figcaption>
             </figure>
-            <span className="absolute -top-3 left-10 h-6 w-20 -rotate-6 bg-bone/25 backdrop-blur-[1px]" aria-hidden />
+            <span className="absolute -top-3 left-6 h-5 w-16 -rotate-6 bg-bone/25 backdrop-blur-[1px] sm:left-10 sm:h-6 sm:w-20" aria-hidden />
           </Reveal>
 
           {/* historia */}
@@ -153,8 +153,8 @@ const SHOTS = [
 
 export function Gallery() {
   return (
-    <section id="taller" className="checkerline relative border-y border-fern/40 bg-pine py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="taller" className="checkerline relative border-y border-fern/40 bg-pine py-16 sm:py-20 lg:py-28 xl:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
           kicker="El taller"
           title={
@@ -165,10 +165,10 @@ export function Gallery() {
           note="Fotos sin filtro, como los cortes. Lo que ves es lo que hay: cuero, acero y harto cariño."
         />
 
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
           {SHOTS.map((s, i) => (
-            <Reveal key={s.src + i} delay={i * 90} className={s.cls}>
-              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.03] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
+            <Reveal key={s.src + i} delay={i * 90} className={`${s.cls} mx-auto w-full max-w-sm sm:max-w-none`}>
+              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.02] sm:hover:scale-[1.03] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
                 <span
                   className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
                   aria-hidden

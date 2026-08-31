@@ -252,9 +252,9 @@ export function Booking() {
   };
 
   return (
-    <section id="agenda" className="pinstripe relative border-t border-fern/40 bg-ink py-24 lg:py-32">
+    <section id="agenda" className="pinstripe relative border-t border-fern/40 bg-ink py-16 sm:py-20 lg:py-28 xl:py-32">
       <div className="pole-stripes absolute inset-x-0 top-0 h-2" aria-hidden />
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
           kicker="Reserva online"
           title={
@@ -265,19 +265,19 @@ export function Booking() {
           note="Eliges servicio, modalidad y horario; José te guarda el sillón. En la barbería de Aldunate 363, La Calera — o en tu propia casa."
         />
 
-        <div className="grid items-start gap-10 lg:grid-cols-[1fr_400px] lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
           {/* -------- asistente -------- */}
           <Reveal>
-            <div className="border border-fern/70 bg-pine/90 p-6 sm:p-9">
+            <div className="border border-fern/70 bg-pine/90 p-4 sm:p-7 md:p-9">
               {/* indicador de pasos */}
-              <ol className="mb-9 flex items-center gap-2 sm:gap-3">
+              <ol className="mb-6 flex items-center gap-1.5 sm:mb-9 sm:gap-3">
                 {STEPS.map((s, i) => {
                   const done = i < step || confirmed !== null;
                   const active = i === step && !confirmed;
                   return (
-                    <li key={s} className="flex flex-1 items-center gap-2 last:flex-none sm:gap-3">
+                    <li key={s} className="flex flex-1 items-center gap-1.5 last:flex-none sm:gap-3">
                       <span
-                        className={`grid h-9 w-9 shrink-0 place-items-center border-2 font-mono text-xs font-bold transition-all duration-300 ${
+                        className={`grid h-8 w-8 shrink-0 place-items-center border-2 font-mono text-xs font-bold transition-all duration-300 sm:h-9 sm:w-9 ${
                           done
                             ? "border-brass bg-brass text-ink"
                             : active
@@ -285,7 +285,7 @@ export function Booking() {
                               : "border-fern text-sage"
                         }`}
                       >
-                        {done ? <Check className="w-4" /> : i + 1}
+                        {done ? <Check className="w-3.5 sm:w-4" /> : i + 1}
                       </span>
                       <span
                         className={`hidden font-mono text-[10px] tracking-[0.18em] uppercase md:block ${
@@ -422,14 +422,14 @@ export function Booking() {
                   <p className="mb-3 font-mono text-[10px] tracking-[0.28em] text-brass uppercase">
                     Elige el día
                   </p>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
                     {days.map((d) => {
                       const on = day?.iso === d.iso;
                       return (
                         <button
                           key={d.iso}
                           onClick={() => pickDay(d)}
-                          className={`w-[78px] border py-2.5 text-center transition-all duration-200 ${
+                          className={`w-full border py-2.5 text-center transition-all duration-200 sm:w-[78px] ${
                             on
                               ? "border-blood bg-blood text-flour shadow-[0_10px_25px_rgba(206,58,40,0.3)]"
                               : "border-fern/60 hover:border-brass/70 hover:bg-moss/50"
@@ -438,7 +438,7 @@ export function Booking() {
                           <span className={`block font-mono text-[10px] tracking-[0.16em] uppercase ${on ? "text-flour/80" : "text-sage"}`}>
                             {d.isToday ? "Hoy" : d.weekday}
                           </span>
-                          <span className="font-display block text-2xl leading-tight">{d.dayNum}</span>
+                          <span className="font-display block text-xl leading-tight sm:text-2xl">{d.dayNum}</span>
                           <span className={`block font-mono text-[10px] uppercase ${on ? "text-flour/80" : "text-sage"}`}>
                             {d.month}
                           </span>
@@ -447,12 +447,12 @@ export function Booking() {
                     })}
                   </div>
 
-                  <p className="mt-8 mb-3 font-mono text-[10px] tracking-[0.28em] text-brass uppercase">
+                  <p className="mt-6 mb-3 font-mono text-[10px] tracking-[0.28em] text-brass uppercase sm:mt-8">
                     Y la hora {day && <span className="text-sage normal-case">· {longDate(day.date)}</span>}
                   </p>
                   {day ? (
                     <>
-                      <div className="grid grid-cols-4 gap-2 sm:grid-cols-6">
+                      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
                         {slots.map((s) => {
                           const on = time === s.time;
                           const dead = s.taken || s.past;
@@ -461,7 +461,7 @@ export function Booking() {
                               key={s.time}
                               disabled={dead}
                               onClick={() => setTime(s.time)}
-                              className={`border py-2.5 font-mono text-[13px] transition-all duration-150 ${
+                              className={`border py-2.5 font-mono text-xs sm:text-[13px] transition-all duration-150 ${
                                 on
                                   ? "border-brass bg-brass font-bold text-ink"
                                   : dead
