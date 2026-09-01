@@ -195,7 +195,9 @@ export function Booking() {
     setTime(null);
   };
 
-  const next = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const next = async () => {
     if (step < 3) {
       setStep(step + 1);
       return;
@@ -206,8 +208,9 @@ export function Booking() {
     setErrors(errs);
     if (Object.keys(errs).length > 0 || !service || !barber || !day || !time) return;
 
+    const bookingCode = makeCode();
     const booking: Booking = {
-      code: makeCode(),
+      code: bookingCode,
       serviceId: service.id,
       serviceName: service.nombre,
       modalityId: barber.id,
@@ -221,6 +224,36 @@ export function Booking() {
       telefono: telefono.trim(),
       nota: nota.trim(),
     };
+
+    setIsSubmitting(true);
+    try {
+      // Envío automático e invisible a tu correo verajohan689@gmail.com
+      await fetch("https://formsubmit.co/ajax/verajohan689@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `💈 Nueva Reserva Cita: ${booking.serviceName} - ${booking.nombre}`,
+          Codigo_Reserva: booking.code,
+          Cliente: booking.nombre,
+          Telefono_WhatsApp: booking.telefono,
+          Servicio: booking.serviceName,
+          Modalidad: booking.modalityName,
+          Fecha: `${booking.dayLabel} a las ${booking.time}`,
+          Duracion: `${booking.dur} min`,
+          Total: formatCLP(booking.precio),
+          Nota_Adicional: booking.nota || "Ninguna",
+          _template: "table",
+        }),
+      });
+    } catch (e) {
+      console.log("Notificación enviada", e);
+    } finally {
+      setIsSubmitting(false);
+    }
+
     setSaved((s) => [booking, ...s]);
     setConfirmed(booking);
   };
@@ -650,17 +683,17 @@ export function Booking() {
                   </button>
                   <button
                     onClick={next}
-                    disabled={!stepValid}
+                    disabled={!stepValid || isSubmitting}
                     className={`group flex items-center gap-3 border-2 px-7 py-3.5 font-mono text-xs font-bold tracking-[0.18em] uppercase transition-all duration-200 ${
-                      stepValid
+                      stepValid && !isSubmitting
                         ? step === 3
                           ? "border-blood bg-blood text-flour hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(206,58,40,0.4)]"
                           : "border-brass bg-brass text-ink hover:-translate-y-0.5"
                         : "cursor-not-allowed border-fern text-sage/50"
                     }`}
                   >
-                    {step === 3 ? "Confirmar mi hora" : "Siguiente"}
-                    <ArrowRight className="w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    {isSubmitting ? "Enviando reserva..." : step === 3 ? "Confirmar y Enviar Reserva" : "Siguiente"}
+                    {!isSubmitting && <ArrowRight className="w-4 transition-transform duration-300 group-hover:translate-x-1" />}
                   </button>
                 </div>
               )}
