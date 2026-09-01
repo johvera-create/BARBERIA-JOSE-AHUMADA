@@ -20,7 +20,7 @@ export function Services() {
               Lo que hacemos, <span className="text-blood">al peso</span>
             </>
           }
-          note="Todos los servicios incluyen lavado, peinado final y café de la casa. Efectivo, tarjeta o transferencia."
+          note="Servicios con técnica tradicional, peinado final y dedicación. Efectivo, tarjeta o transferencia."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">

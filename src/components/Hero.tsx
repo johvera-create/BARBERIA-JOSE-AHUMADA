@@ -174,7 +174,7 @@ export function Hero() {
                 Agendar turno
               </a>
               <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-ink/50 uppercase">
-                Guarda este ticket · vale un café de la casa
+                Atención profesional · Reserva previa confirmada
               </p>
             </div>
 

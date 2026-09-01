@@ -6,14 +6,14 @@ import { Booking } from "./components/Booking";
 import { Testimonials, Visit } from "./components/Closing";
 
 const MARQUEE_ITEMS = [
-  "Corte clásico",
+  "Corte clásico adulto",
   "Degradados al milímetro",
-  "Afeitado a navaja",
-  "Toalla caliente",
+  "Corte solo tijeras",
+  "Afeitado tradicional a navaja",
   "Perfilado de barba",
-  "Cejas a navaja",
-  "Camuflaje de canas",
-  "Café de la casa",
+  "Toalla caliente & aceites",
+  "Corte + Barba combos",
+  "Atención en Barbería, Studio y Domicilio",
 ];
 
 export default function App() {
