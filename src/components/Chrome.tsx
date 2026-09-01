@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { useReveal, useScrolled } from "../hooks";
-import { ADDRESS, HOURS, PHONE, PHONE_WA } from "../data";
+import { ADDRESS, HOURS, PHONE, PHONE_WA, WEIBOOK_URL } from "../data";
 import { Diamond, Scissors, XMark } from "./icons";
 
 /* ---------- grano de película sobre toda la página ---------- */
@@ -143,11 +143,13 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#agenda"
+            href={WEIBOOK_URL}
+            target="_blank"
+            rel="noreferrer"
             className="group flex items-center gap-2 border-2 border-blood bg-blood px-5 py-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-flour uppercase transition-all duration-200 hover:bg-transparent hover:text-blood active:translate-y-0.5"
           >
             <Scissors className="w-4 transition-transform duration-300 group-hover:rotate-45" />
-            Agendar hora
+            Agendar hora ↗
           </a>
         </div>
 
@@ -180,11 +182,13 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#agenda"
+            href={WEIBOOK_URL}
+            target="_blank"
+            rel="noreferrer"
             onClick={() => setOpen(false)}
             className="mt-6 flex items-center justify-center gap-2 bg-blood py-4 font-mono text-sm font-bold tracking-[0.2em] text-flour uppercase"
           >
-            <Scissors className="w-4" /> Agendar hora
+            <Scissors className="w-4" /> Agendar en Weibook ↗
           </a>
         </div>
       )}
@@ -271,10 +275,12 @@ export function Footer() {
               {PHONE}
             </a>
             <a
-              href="#agenda"
+              href={WEIBOOK_URL}
+              target="_blank"
+              rel="noreferrer"
               className="mt-5 inline-block border border-brass/70 px-5 py-2.5 font-mono text-xs tracking-[0.18em] text-brass uppercase transition-all hover:bg-brass hover:text-ink"
             >
-              Reservar un sillón
+              Reservar en Weibook ↗
             </a>
           </div>
         </div>

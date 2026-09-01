@@ -20,45 +20,34 @@ export interface Category {
 
 export const CATEGORIES: Category[] = [
   {
-    id: "clasicos",
-    titulo: "Los clásicos",
-    nota: "Tijera, máquina y conversación",
+    id: "cortes",
+    titulo: "Cortes de Cabello",
+    nota: "Tijera, degradé y estilo clásico",
     services: [
-      { id: "clasico", nombre: "Corte clásico", desc: "Tijera y máquina, peinado incluido", dur: 30, precio: 10000 },
-      { id: "fade", nombre: "Corte degradé", desc: "Al gusto: bajo, medio o a la piel", dur: 40, precio: 12000, hot: true },
-      { id: "nino", nombre: "Corte cabro chico", desc: "Hasta 12 años, con paciencia de abuelo", dur: 25, precio: 7000 },
-      { id: "lavado", nombre: "Lavado y peinado", desc: "Masaje capilar de propina", dur: 15, precio: 4000 },
+      { id: "corte-clasico-adulto", nombre: "Corte Clásico Adulto", desc: "Corte de pelo realizado con máquina y tijeras, sin degradé, peinado final incluido.", dur: 30, precio: 10000, hot: true },
+      { id: "corte-degradado", nombre: "Corte Degradado", desc: "Corte de pelo en degradé bajo, medio o alto, degradé clásico o a la piel.", dur: 60, precio: 12000, hot: true },
+      { id: "corte-solo-tijeras", nombre: "Corte solo Tijeras", desc: "Corte con tijeras es un corte limpio y el pelo crecerá tal cual su forma.", dur: 60, precio: 12000 },
+      { id: "lavado-pelo", nombre: "Lavado de Pelo", desc: "Lavado capilar profundo con masaje y productos de la casa.", dur: 10, precio: 5000 },
     ],
   },
   {
     id: "barba",
-    titulo: "Barba & navaja",
-    nota: "Toalla caliente, aceite y precisión",
+    titulo: "Barba & Navaja",
+    nota: "Perfilado, toalla caliente y cuidado",
     services: [
-      { id: "perfilado", nombre: "Perfilado de barba", desc: "Contornos a navaja y aceite", dur: 20, precio: 6000 },
-      { id: "afeitado", nombre: "Afeitado clásico a navaja", desc: "Ritual completo con toalla caliente", dur: 35, precio: 10000, hot: true },
-      { id: "cortebarba", nombre: "Corte + barba completa", desc: "El dúo que nunca falla", dur: 60, precio: 16000 },
+      { id: "perfilado-barba", nombre: "Perfilado de Barba", desc: "Limpieza y perfilado de la barba con navaja y/o máquina, uso de aceites y toalla.", dur: 30, precio: 8000 },
+      { id: "barba-perfilado-ritual", nombre: "Barba perfilado o afeitado completo", desc: "Ritual completo a navaja, aceites esenciales y toalla caliente para una piel perfecta.", dur: 45, precio: 10000, hot: true },
     ],
   },
   {
-    id: "extras",
-    titulo: "Las otras cositas",
-    nota: "Detalles que se notan",
+    id: "combos",
+    titulo: "Combos & Dúos",
+    nota: "Corte + Barba para salir renovado",
     services: [
-      { id: "cejas", nombre: "Cejas a navaja", desc: "Sin pincha y sin drama", dur: 10, precio: 2000 },
-      { id: "canas", nombre: "Camuflaje de canas", desc: "Nadie se va a dar cuenta. Nadie.", dur: 25, precio: 8000 },
-      { id: "tratamiento", nombre: "Tratamiento capilar", desc: "Exfoliación + masaje craneal", dur: 20, precio: 7000 },
-      { id: "cera", nombre: "Depilación facial con cera", desc: "Nariz, orejas o mejillas", dur: 10, precio: 3000 },
-    ],
-  },
-  {
-    id: "packs",
-    titulo: "Packs de la casa",
-    nota: "Salga como nuevo, pagando menos",
-    services: [
-      { id: "completo", nombre: "El Completo", desc: "Corte + barba + cejas + lavado", dur: 75, precio: 20000, hot: true },
-      { id: "padrehijo", nombre: "Padre e hijo", desc: "Dos cortes, una foto pal recuerdo", dur: 55, precio: 15000 },
-      { id: "novio", nombre: "El Novio", desc: "Corte + afeitado ritual + retoque día B", dur: 90, precio: 28000 },
+      { id: "corte-clasico-barba", nombre: "Corte de Pelo Clásico + Perfilado de Barba", desc: "Corte de pelo clásico, sin degradé, más perfilado de barba con toalla caliente y navaja.", dur: 60, precio: 16000 },
+      { id: "corte-degrade-barba", nombre: "Corte Degradé + Perfilado de Barba", desc: "Corte de pelo con degradado bajo, medio o alto con diferente acabado + perfilado de barba.", dur: 80, precio: 18000, hot: true },
+      { id: "corte-clasico-toalla", nombre: "Corte de Pelo Clásico + Barba Toalla Caliente", desc: "Corte clásico más ritual de afeitado o perfilado con doble toalla caliente y masaje.", dur: 80, precio: 18000 },
+      { id: "corte-degradado-completo", nombre: "Corte Degradado + Barba Completa Premium", desc: "El servicio completo definitivo: degradado al milímetro, barba completa con toalla y acabado pro.", dur: 90, precio: 20000, hot: true },
     ],
   },
 ];

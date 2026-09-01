@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { getOpenState, nextAvailable, HOURS } from "../data";
+import { getOpenState, nextAvailable, HOURS, WEIBOOK_URL } from "../data";
 import { useNow } from "../hooks";
 import { ArrowRight, Scissors } from "./icons";
 import { BarberPole } from "./Chrome";
@@ -90,17 +90,19 @@ export function Hero() {
 
           <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a
-              href="#agenda"
+              href={WEIBOOK_URL}
+              target="_blank"
+              rel="noreferrer"
               className="group flex items-center justify-center gap-3 border-2 border-blood bg-blood px-6 py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-flour uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_35px_rgba(206,58,40,0.35)] active:translate-y-0 sm:px-7 sm:py-4 sm:text-sm"
             >
-              Agendar mi hora
+              Agendar en Weibook ↗
               <ArrowRight className="w-4.5 transition-transform duration-300 group-hover:translate-x-1.5" />
             </a>
             <a
               href="#pizarra"
               className="flex items-center justify-center gap-3 border-2 border-bone/30 px-6 py-3.5 font-mono text-xs tracking-[0.16em] text-bone uppercase transition-all duration-200 hover:border-brass hover:text-brass sm:px-7 sm:py-4 sm:text-sm"
             >
-              Ver la pizarra
+              Ver servicios y precios
             </a>
           </div>
 
@@ -168,11 +170,13 @@ export function Hero() {
 
             <div className="border-t-2 border-dashed border-ink/25 px-5 py-5 sm:px-7">
               <a
-                href="#agenda"
+                href={WEIBOOK_URL}
+                target="_blank"
+                rel="noreferrer"
                 className="flex w-full items-center justify-center gap-2 bg-ink py-3.5 font-mono text-xs font-bold tracking-[0.24em] text-flour uppercase transition-colors duration-200 hover:bg-blood"
               >
                 <Scissors className="w-4" />
-                Reservar mi hora
+                Reservar en Weibook ↗
               </a>
               <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-ink/50 uppercase">
                 Guarda este ticket · vale un café de la casa
