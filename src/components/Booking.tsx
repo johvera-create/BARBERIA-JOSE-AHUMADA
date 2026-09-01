@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   MODALITIES,
   CATEGORIES,
+  ALL_SERVICES,
   formatCLP,
   getDays,
   getSlots,
@@ -482,41 +483,50 @@ export function Booking() {
                   </div>
                 </div>
               ) : step === 0 ? (
-                /* -------- servicio -------- */
-                <div className="space-y-6">
-                  {CATEGORIES.map((cat) => (
-                    <div key={cat.id}>
-                      <p className="mb-2.5 font-mono text-[10px] tracking-[0.28em] text-brass uppercase">
-                        {cat.titulo}
-                      </p>
-                      <div className="grid gap-2.5 sm:grid-cols-2">
-                        {cat.services.map((s) => {
-                          const on = service?.id === s.id;
-                          return (
-                            <button
-                              key={s.id}
-                              onClick={() => setService(s)}
-                              className={`group relative border p-4 text-left transition-all duration-200 ${
-                                on
-                                  ? "border-brass bg-moss shadow-[0_10px_25px_rgba(0,0,0,0.35)]"
-                                  : "border-fern/60 hover:border-brass/60 hover:bg-moss/50"
-                              }`}
-                            >
-                              {on && (
-                                <span className="absolute top-3 right-3 grid h-5 w-5 place-items-center bg-brass text-ink">
-                                  <Check className="w-3" />
-                                </span>
-                              )}
-                              <p className="pr-6 font-semibold text-flour">{s.nombre}</p>
-                              <p className="mt-1 font-mono text-[11px] tracking-wide text-sage">
-                                {s.dur} min · <span className="text-brass">{formatCLP(s.precio)}</span>
-                              </p>
-                            </button>
-                          );
-                        })}
+                /* -------- selector elegante de servicio -------- */
+                <div className="space-y-5">
+                  <div>
+                    <label htmlFor="service-select" className="mb-2 block font-mono text-[11px] tracking-[0.2em] text-brass uppercase font-bold">
+                      Selecciona el servicio a agendar:
+                    </label>
+                    <select
+                      id="service-select"
+                      value={service?.id ?? ""}
+                      onChange={(e) => {
+                        const found = ALL_SERVICES.find((s) => s.id === e.target.value);
+                        setService(found ?? null);
+                      }}
+                      className="field w-full cursor-pointer bg-pine border-2 border-brass/60 p-3.5 font-mono text-sm text-flour focus:border-brass focus:outline-none"
+                    >
+                      <option value="" disabled className="bg-pine text-sage">
+                        -- Elige un corte o servicio --
+                      </option>
+                      {CATEGORIES.map((cat) => (
+                        <optgroup key={cat.id} label={`── ${cat.titulo} ──`} className="bg-pine font-bold text-brass">
+                          {cat.services.map((s) => (
+                            <option key={s.id} value={s.id} className="bg-ink text-bone font-normal py-1">
+                              {s.nombre} · ({s.dur} min - {formatCLP(s.precio)})
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </div>
+
+                  {service ? (
+                    <div className="border border-brass/50 bg-moss/50 p-5 transition-all">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-fern/40 pb-3">
+                        <span className="font-display text-xl text-flour uppercase">{service.nombre}</span>
+                        <span className="font-display text-2xl text-brass">{formatCLP(service.precio)}</span>
                       </div>
+                      <p className="mt-3 text-sm leading-relaxed text-sage">{service.desc}</p>
+                      <p className="mt-2 font-mono text-xs text-bone/70">⏱ Duración estimada: <strong className="text-flour">{service.dur} minutos</strong></p>
                     </div>
-                  ))}
+                  ) : (
+                    <div className="border border-dashed border-fern/60 p-6 text-center text-xs text-sage font-mono">
+                      Selecciona un servicio en la lista para ver su detalle y continuar.
+                    </div>
+                  )}
                 </div>
               ) : step === 1 ? (
                 /* -------- barbero -------- */
