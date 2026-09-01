@@ -23,7 +23,7 @@ function Stat({
   return (
     <div ref={ref} className={`rv ${inView ? "is-in" : ""} border-l-2 border-blood/70 pl-5`} style={{ transitionDelay: `${delay}ms` }}>
       <p className="font-display text-4xl text-flour sm:text-5xl">
-        {fixed ? value.toLocaleString("es-CL") : n}
+        {fixed ? String(value) : n}
         <span className="text-brass">{suffix}</span>
       </p>
       <p className="mt-1.5 font-mono text-[11px] tracking-[0.2em] text-sage uppercase">{label}</p>
