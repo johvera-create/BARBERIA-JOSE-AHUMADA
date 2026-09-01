@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 /** Revela el elemento cuando entra al viewport (una sola vez). */
-export function useReveal<T extends HTMLElement>(threshold = 0.18) {
+export function useReveal<T extends HTMLElement>(threshold = 0.05) {
   const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
@@ -21,7 +21,7 @@ export function useReveal<T extends HTMLElement>(threshold = 0.18) {
           }
         });
       },
-      { threshold, rootMargin: "0px 0px -8% 0px" }
+      { threshold }
     );
     io.observe(el);
     return () => io.disconnect();
