@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   MODALITIES,
   CATEGORIES,
@@ -196,10 +196,14 @@ export function Booking() {
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formContainerRef = useRef<HTMLDivElement | null>(null);
 
   const next = async () => {
     if (step < 3) {
       setStep(step + 1);
+      if (formContainerRef.current) {
+        formContainerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
       return;
     }
     const errs: typeof errors = {};
@@ -375,7 +379,7 @@ export function Booking() {
           </Reveal>
         </div>
 
-        <div id="formulario-studio" className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
+        <div id="formulario-studio" ref={formContainerRef} className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
           {/* -------- asistente -------- */}
           <Reveal>
             <div className="border border-fern/70 bg-pine/90 p-4 sm:p-7 md:p-9">
