@@ -74,7 +74,7 @@ export function About() {
                 className="aspect-[4/5] w-full object-cover"
               />
               <figcaption className="mt-2 text-center font-mono text-[9px] tracking-[0.16em] text-ink/65 uppercase sm:text-[10px] sm:tracking-[0.2em]">
-                El patrón, tijera en mano
+                José Ahumada, tijera en mano
               </figcaption>
             </figure>
             <span className="absolute -top-3 left-6 h-5 w-16 -rotate-6 bg-bone/25 backdrop-blur-[1px] sm:left-10 sm:h-6 sm:w-20" aria-hidden />
@@ -83,27 +83,25 @@ export function About() {
           {/* historia */}
           <div className="lg:pt-6">
             <SectionHead
-              kicker="La casa"
+              kicker="El Barbero"
               title={
                 <>
-                  Una barbería propia, <span className="text-blood">hecha a pulso</span>
+                  Oficio y servicio, <span className="text-blood">hechos a pulso</span>
                 </>
               }
             />
             <div className="space-y-5 text-[15px] leading-relaxed text-bone/85">
               <p>
-                En <strong className="font-semibold text-flour">2023</strong>, José Ahumada cumplió el
-                sueño pendiente: abrir su propia barbería en{" "}
-                <strong className="font-semibold text-flour">La Calera</strong>. Un sillón, su máquina
-                de toda la vida y una convicción — cortar como en las peluquerías de antes, mirando a
-                la cara al cliente y sin plantillas.
+                Desde <strong className="font-semibold text-flour">2023</strong>, José Ahumada presta sus
+                servicios de peluquería y barbería profesional en{" "}
+                <strong className="font-semibold text-flour">La Calera</strong> con una convicción clara:
+                cortar como en las peluquerías de antes, con técnica de tijera, dedicación completa y sin apuros.
               </p>
               <p>
-                Hoy la barbería está en <strong className="font-semibold text-flour">Aldunate 363</strong>{" "}
-                y la libreta se llena semana a semana. Y cuando el cliente no puede llegar, el
-                peluquero llega a él: <strong className="font-semibold text-flour">José atiende a
-                domicilio</strong>, yendo directo a tu casa por La Calera y alrededores. Cambia el
-                lugar, no el trato: café pasado, toalla caliente y cero apuro.
+                De día, José atiende en el sillón de <strong className="font-semibold text-flour">Aldunate 363</strong>{" "}
+                (agendamiento directo vía Weibook). De noche y para horarios especiales, recibe en su{" "}
+                <strong className="font-semibold text-flour">Authentic Studio privado</strong>, o se traslada con su maletín de herramientas{" "}
+                <strong className="font-semibold text-flour">directo a tu domicilio</strong> por La Calera y alrededores.
               </p>
             </div>
 
@@ -126,7 +124,7 @@ export function About() {
               ))}
             </ul>
 
-            <p className="mt-10 font-mono text-sm text-brass italic">— José Ahumada, el patrón</p>
+            <p className="mt-10 font-mono text-sm text-brass italic">— José Ahumada, Peluquero & Barbero</p>
           </div>
         </div>
 

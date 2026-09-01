@@ -82,10 +82,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-bone/85 sm:mt-8 sm:text-lg">
-            El peluquero <strong className="font-semibold text-flour">José Ahumada</strong>: corte
-            clásico, degradé y perfilado de barba con oficio de antes. Atiende en su barbería de{" "}
-            <strong className="font-semibold text-flour">La Calera, Aldunate 363</strong> — y si te
-            queda lejos, él va a tu casa <strong className="font-semibold text-flour">a domicilio</strong>.
+            El barbero y peluquero <strong className="font-semibold text-flour">José Ahumada</strong>: corte
+            clásico, degradé fino y perfilado de barba con técnica y dedicación. Servicios profesionales en el sillón de{" "}
+            <strong className="font-semibold text-flour">Aldunate 363</strong>, en su <strong className="font-semibold text-flour">Authentic Studio nocturno</strong> o <strong className="font-semibold text-flour">a domicilio</strong>.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
