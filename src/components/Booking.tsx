@@ -227,8 +227,8 @@ export function Booking() {
 
     setIsSubmitting(true);
     try {
-      // Envío automático e invisible a tu correo verajohan689@gmail.com
-      await fetch("https://formsubmit.co/ajax/verajohan689@gmail.com", {
+      // Envío automático e invisible a tu correo verajohan681@gmail.com
+      await fetch("https://formsubmit.co/ajax/verajohan681@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -236,6 +236,8 @@ export function Booking() {
         },
         body: JSON.stringify({
           _subject: `💈 Nueva Reserva Cita: ${booking.serviceName} - ${booking.nombre}`,
+          _captcha: "false",
+          _template: "table",
           Codigo_Reserva: booking.code,
           Cliente: booking.nombre,
           Telefono_WhatsApp: booking.telefono,
@@ -245,7 +247,6 @@ export function Booking() {
           Duracion: `${booking.dur} min`,
           Total: formatCLP(booking.precio),
           Nota_Adicional: booking.nota || "Ninguna",
-          _template: "table",
         }),
       });
     } catch (e) {
