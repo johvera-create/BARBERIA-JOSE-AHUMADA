@@ -65,9 +65,8 @@ export interface Modality {
 }
 
 export const MODALITIES: Modality[] = [
-  { id: "barberia", nombre: "En la barbería (Weibook)", alias: "Aldunate 363", desc: "En el local de Aldunate 363: sillón, buen café y cero apuro. Agendamiento online directo vía Weibook.", iniciales: "LC" },
-  { id: "studio", nombre: "Authentic Studio (En su casa)", alias: "Estudio Privado", desc: "Atención privada, tranquila y 100% personalizada en el estudio particular de José. Reserva exclusiva vía WhatsApp/Correo.", iniciales: "AS" },
-  { id: "domicilio", nombre: "A domicilio (José va a ti)", alias: "En tu casa", desc: "José va directo a tu casa por La Calera y comunas aledañas con todas sus herramientas. Se coordina previamente.", iniciales: "AD" },
+  { id: "studio", nombre: "Authentic Studio (En mi casa - Noches)", alias: "Estudio Particular", desc: "Atención privada y personalizada en el estudio particular de José. Horarios nocturnos (desde las 20:00 hrs). Te llega directo al correo/WhatsApp.", iniciales: "AS" },
+  { id: "domicilio", nombre: "A domicilio (José va a tu casa)", alias: "Servicio a tu puerta", desc: "José va directo a tu casa con todas sus herramientas por La Calera y alrededores. Horarios a convenir.", iniciales: "AD" },
 ];
 
 /* ---------------- horarios ---------------- */
@@ -154,16 +153,25 @@ export interface Slot {
 }
 
 export function getSlots(day: DayInfo, barberId: string): Slot[] {
-  if (!day.hours.open || !day.hours.close) return [];
-  const start = toMin(day.hours.open);
-  const end = toMin(day.hours.close);
+  let start = 1200; // 20:00 por defecto para studio en casa
+  let end = 1380;   // 23:00
+
+  if (barberId === "domicilio") {
+    start = 600;  // 10:00
+    end = 1260;  // 21:00
+  } else if (barberId === "barberia") {
+    if (!day.hours.open || !day.hours.close) return [];
+    start = toMin(day.hours.open);
+    end = toMin(day.hours.close);
+  }
+
   const now = new Date();
   const nowMin = now.getHours() * 60 + now.getMinutes();
   const slots: Slot[] = [];
   for (let t = start; t <= end - 30; t += 30) {
     const time = toHHMM(t);
-    const seed = hashStr(`${day.iso}|${time}|${barberId === "any" ? "casa" : barberId}`);
-    const taken = seed % 10 < 4; // ~40 % ocupado, determinístico
+    const seed = hashStr(`${day.iso}|${time}|${barberId}`);
+    const taken = seed % 10 < 3; // ~30 % ocupado
     const past = day.isToday && t <= nowMin + 30;
     slots.push({ time, taken, past });
   }

@@ -292,46 +292,97 @@ export function Booking() {
       <div className="pole-stripes absolute inset-x-0 top-0 h-2" aria-hidden />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead
-          kicker="Reserva online"
+          kicker="Reserva tu turno"
           title={
             <>
-              Agenda tu <span className="text-blood">hora</span>
+              ¿Dónde quieres <span className="text-blood">atenderte</span>?
             </>
           }
-          note="Atención en el sillón de Aldunate 363 o a domicilio. Puedes agendar directamente en nuestra plataforma o a través de Weibook."
+          note="Elige entre agendar en el local de día (sincronizado con Weibook) o reservar en mi estudio privado en casa (horarios nocturnos) y a domicilio."
         />
 
-        {/* Banner destacado de Weibook */}
-        <Reveal className="mb-8 border border-brass/50 bg-moss/60 p-5 sm:p-6">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-            <div className="flex items-center gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center border-2 border-brass bg-pine text-brass">
-                <Scissors className="w-6" />
-              </span>
-              <div>
-                <p className="font-display text-lg tracking-wide text-flour uppercase sm:text-xl">
-                  ¿Prefieres agendar vía <span className="text-brass">Weibook</span>?
-                </p>
-                <p className="text-xs text-sage sm:text-sm">
-                  Si ya tienes tu cuenta de Weibook, puedes reservar tu turno con José directamente en su app.
-                </p>
+        {/* 2 Opciones visuales claras: Barbería (Weibook) vs Authentic Studio / Domicilio */}
+        <div className="mb-12 grid gap-6 md:grid-cols-2">
+          {/* Tarjeta 1: Barbería La Calera */}
+          <Reveal className="flex flex-col justify-between border-2 border-fern/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-brass/70">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-brass bg-moss text-brass">
+                  <Scissors className="w-6" />
+                </span>
+                <span className="border border-brass/40 bg-brass/10 px-3 py-1 font-mono text-[10px] tracking-wider text-brass uppercase">
+                  Horario de Día
+                </span>
               </div>
+              <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
+                En la Barbería (La Calera)
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-sage">
+                Atención en local oficial de <strong>Aldunate 363</strong>. Sincronizado en vivo con la app de la barbería.
+              </p>
+              <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Lunes a Viernes: 10:00 a 20:00 hrs
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Sábados: 09:00 a 18:00 hrs
+                </li>
+              </ul>
             </div>
             <a
               href={WEIBOOK_URL}
               target="_blank"
               rel="noreferrer"
-              className="flex shrink-0 items-center gap-2 border-2 border-brass bg-brass px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(216,162,60,0.35)]"
+              className="mt-6 flex items-center justify-center gap-2 border-2 border-brass bg-brass py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(216,162,60,0.35)]"
             >
-              Abrir en Weibook ↗
+              📅 Agendar en Weibook en Vivo ↗
             </a>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        <div className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
+          {/* Tarjeta 2: Authentic Studio / Domicilio */}
+          <Reveal delay={100} className="flex flex-col justify-between border-2 border-blood/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-blood">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-blood bg-moss text-flour">
+                  <Scissors className="w-6 text-blood" />
+                </span>
+                <span className="border border-blood/40 bg-blood/10 px-3 py-1 font-mono text-[10px] tracking-wider text-blood uppercase">
+                  Noches & Especial
+                </span>
+              </div>
+              <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
+                Authentic Studio & Domicilio
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-sage">
+                En el <strong>estudio privado de José (en su casa de noche)</strong> o servicio a domicilio personalizado.
+              </p>
+              <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Turnos nocturnos: 20:00 a 23:00 hrs
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Reserva automática a mi correo y WhatsApp
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#formulario-studio"
+              className="mt-6 flex items-center justify-center gap-2 border-2 border-blood bg-blood py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-flour uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(206,58,40,0.35)]"
+            >
+              📋 Reservar Studio / Domicilio ↓
+            </a>
+          </Reveal>
+        </div>
+
+        <div id="formulario-studio" className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
           {/* -------- asistente -------- */}
           <Reveal>
             <div className="border border-fern/70 bg-pine/90 p-4 sm:p-7 md:p-9">
+              <div className="mb-6 border-b border-fern/40 pb-4">
+                <p className="font-mono text-xs tracking-widest text-brass uppercase">Formulario Exclusivo</p>
+                <h4 className="font-display text-xl text-flour uppercase">Reserva para Authentic Studio / Domicilio</h4>
+              </div>
+
               {/* indicador de pasos */}
               <ol className="mb-6 flex items-center gap-1.5 sm:mb-9 sm:gap-3">
                 {STEPS.map((s, i) => {
@@ -370,52 +421,39 @@ export function Booking() {
                     <Check className="w-9" />
                   </span>
                   <h3 className="font-display mt-6 text-3xl sm:text-4xl tracking-wide text-flour uppercase">
-                    ¡Listo, {confirmed.nombre.split(" ")[0]}!
+                    ¡Solicitud Recibida, {confirmed.nombre.split(" ")[0]}!
                   </h3>
-                  <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-sage">
-                    Tu solicitud está lista:{" "}
-                    <strong className="text-flour">{confirmed.serviceName}</strong> ({confirmed.modalityName}) el{" "}
-                    <strong className="text-flour">{confirmed.dayLabel}</strong> a las{" "}
-                    <strong className="text-brass">{confirmed.time}</strong>.
-                  </p>
-
-                  <div className="mx-auto mt-6 max-w-md border border-dashed border-brass/50 bg-moss/50 p-4 text-left font-mono text-xs">
-                    <p className="font-bold text-brass uppercase">Notificar a José Ahumada:</p>
-                    <p className="mt-1 text-sage text-[11px] leading-relaxed">
-                      Para asegurar y coordinar tu hora (especialmente para Authentic Studio o Domicilio), envíale el ticket directamente:
+                  <div className="mx-auto mt-4 max-w-md border border-brass/60 bg-moss/70 p-4 text-center">
+                    <p className="font-mono text-xs text-brass font-bold uppercase">
+                      ✓ Tu solicitud ya fue enviada automáticamente al correo de José
                     </p>
-                    <div className="mt-4 flex flex-col gap-2.5 sm:flex-row">
+                    <p className="mt-1 text-xs text-sage">
+                      ({confirmed.serviceName} · {confirmed.modalityName} el {confirmed.dayLabel} a las {confirmed.time})
+                    </p>
+                  </div>
+
+                  <div className="mx-auto mt-6 max-w-md border border-dashed border-fern/80 bg-pine p-4 text-left font-mono text-xs">
+                    <p className="font-bold text-flour uppercase">¿Deseas confirmación instantánea?</p>
+                    <p className="mt-1 text-sage text-[11px] leading-relaxed">
+                      También puedes presionar el botón de abajo para abrir WhatsApp con los datos de tu reserva ya escritos:
+                    </p>
+                    <div className="mt-4">
                       <a
                         href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(
-                          `¡Hola José! Acabo de solicitar una hora:\n\n` +
+                          `¡Hola José! Acabo de agendar por tu página web:\n\n` +
                           `✂ Servicio: ${confirmed.serviceName}\n` +
                           `🏠 Modalidad: ${confirmed.modalityName}\n` +
                           `📅 Fecha: ${confirmed.dayLabel} - ${confirmed.time}\n` +
                           `👤 Cliente: ${confirmed.nombre} (${confirmed.telefono})\n` +
                           (confirmed.nota ? `📝 Nota: ${confirmed.nota}\n` : "") +
                           `🔖 Código: ${confirmed.code}\n\n` +
-                          `¿Me confirmas disponibilidad? Muchas gracias 🙌`
+                          `Quedo atento a tu confirmación 🙌`
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex flex-1 items-center justify-center gap-2 bg-brass py-3 font-mono text-xs font-bold tracking-[0.12em] text-ink uppercase transition-all hover:bg-brass/90 hover:shadow-[0_8px_20px_rgba(216,162,60,0.3)]"
+                        className="flex w-full items-center justify-center gap-2 bg-brass py-3 font-mono text-xs font-bold tracking-[0.12em] text-ink uppercase transition-all hover:bg-brass/90 hover:shadow-[0_8px_20px_rgba(216,162,60,0.3)]"
                       >
-                        Enviar por WhatsApp ↗
-                      </a>
-                      <a
-                        href={`mailto:${EMAIL}?subject=${encodeURIComponent(`Reserva [${confirmed.code}] - ${confirmed.nombre}`)}&body=${encodeURIComponent(
-                          `Solicitud de Cita - Peluquero José Ahumada\n\n` +
-                          `Servicio: ${confirmed.serviceName}\n` +
-                          `Modalidad: ${confirmed.modalityName}\n` +
-                          `Fecha: ${confirmed.dayLabel} a las ${confirmed.time}\n` +
-                          `Cliente: ${confirmed.nombre}\n` +
-                          `Teléfono: ${confirmed.telefono}\n` +
-                          `Nota: ${confirmed.nota || "Sin nota"}\n` +
-                          `Código de Reserva: ${confirmed.code}\n`
-                        )}`}
-                        className="flex items-center justify-center gap-2 border border-bone/40 px-4 py-3 font-mono text-xs tracking-[0.12em] text-bone uppercase transition-all hover:border-brass hover:text-brass"
-                      >
-                        Enviar por Correo
+                        Abrir chat en WhatsApp ↗
                       </a>
                     </div>
                   </div>
