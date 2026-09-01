@@ -8,6 +8,8 @@ import {
   longDate,
   makeCode,
   WEIBOOK_URL,
+  EMAIL,
+  PHONE_WA,
   type Modality,
   type DayInfo,
   type Service,
@@ -334,33 +336,72 @@ export function Booking() {
                   <span className="mx-auto grid h-20 w-20 place-items-center rounded-full border-2 border-brass text-brass">
                     <Check className="w-9" />
                   </span>
-                  <h3 className="font-display mt-6 text-4xl tracking-wide text-flour uppercase">
+                  <h3 className="font-display mt-6 text-3xl sm:text-4xl tracking-wide text-flour uppercase">
                     ¡Listo, {confirmed.nombre.split(" ")[0]}!
                   </h3>
                   <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-sage">
-                    Tu hora está guardada en la libreta:{" "}
-                    <strong className="text-flour">{confirmed.serviceName}</strong> el{" "}
+                    Tu solicitud está lista:{" "}
+                    <strong className="text-flour">{confirmed.serviceName}</strong> ({confirmed.modalityName}) el{" "}
                     <strong className="text-flour">{confirmed.dayLabel}</strong> a las{" "}
-                    <strong className="text-brass">{confirmed.time}</strong>.{" "}
-                    {confirmed.modalityId === "domicilio"
-                      ? "José irá a tu casa — te escribimos por WhatsApp para coordinar la dirección."
-                      : "Te esperamos en la barbería: Aldunate 363, La Calera."}
+                    <strong className="text-brass">{confirmed.time}</strong>.
                   </p>
-                  <p className="mt-4 font-mono text-xs tracking-[0.2em] text-blood uppercase">
+
+                  <div className="mx-auto mt-6 max-w-md border border-dashed border-brass/50 bg-moss/50 p-4 text-left font-mono text-xs">
+                    <p className="font-bold text-brass uppercase">Notificar a José Ahumada:</p>
+                    <p className="mt-1 text-sage text-[11px] leading-relaxed">
+                      Para asegurar y coordinar tu hora (especialmente para Authentic Studio o Domicilio), envíale el ticket directamente:
+                    </p>
+                    <div className="mt-4 flex flex-col gap-2.5 sm:flex-row">
+                      <a
+                        href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(
+                          `¡Hola José! Acabo de solicitar una hora:\n\n` +
+                          `✂ Servicio: ${confirmed.serviceName}\n` +
+                          `🏠 Modalidad: ${confirmed.modalityName}\n` +
+                          `📅 Fecha: ${confirmed.dayLabel} - ${confirmed.time}\n` +
+                          `👤 Cliente: ${confirmed.nombre} (${confirmed.telefono})\n` +
+                          (confirmed.nota ? `📝 Nota: ${confirmed.nota}\n` : "") +
+                          `🔖 Código: ${confirmed.code}\n\n` +
+                          `¿Me confirmas disponibilidad? Muchas gracias 🙌`
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex flex-1 items-center justify-center gap-2 bg-brass py-3 font-mono text-xs font-bold tracking-[0.12em] text-ink uppercase transition-all hover:bg-brass/90 hover:shadow-[0_8px_20px_rgba(216,162,60,0.3)]"
+                      >
+                        Enviar por WhatsApp ↗
+                      </a>
+                      <a
+                        href={`mailto:${EMAIL}?subject=${encodeURIComponent(`Reserva [${confirmed.code}] - ${confirmed.nombre}`)}&body=${encodeURIComponent(
+                          `Solicitud de Cita - Peluquero José Ahumada\n\n` +
+                          `Servicio: ${confirmed.serviceName}\n` +
+                          `Modalidad: ${confirmed.modalityName}\n` +
+                          `Fecha: ${confirmed.dayLabel} a las ${confirmed.time}\n` +
+                          `Cliente: ${confirmed.nombre}\n` +
+                          `Teléfono: ${confirmed.telefono}\n` +
+                          `Nota: ${confirmed.nota || "Sin nota"}\n` +
+                          `Código de Reserva: ${confirmed.code}\n`
+                        )}`}
+                        className="flex items-center justify-center gap-2 border border-bone/40 px-4 py-3 font-mono text-xs tracking-[0.12em] text-bone uppercase transition-all hover:border-brass hover:text-brass"
+                      >
+                        Enviar por Correo
+                      </a>
+                    </div>
+                  </div>
+
+                  <p className="mt-5 font-mono text-xs tracking-[0.2em] text-blood uppercase">
                     Código de reserva: {confirmed.code}
                   </p>
-                  <div className="mt-8 flex flex-wrap justify-center gap-4">
+                  <div className="mt-7 flex flex-wrap justify-center gap-4">
                     <button
                       onClick={reset}
-                      className="flex items-center gap-2 border-2 border-blood bg-blood px-6 py-3.5 font-mono text-xs font-bold tracking-[0.18em] text-flour uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(206,58,40,0.35)]"
+                      className="flex items-center gap-2 border-2 border-blood bg-blood px-6 py-3 font-mono text-xs font-bold tracking-[0.18em] text-flour uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(206,58,40,0.35)]"
                     >
-                      <Scissors className="w-4" /> Agendar otra hora
+                      <Scissors className="w-4" /> Solicitar otra hora
                     </button>
                     <button
                       onClick={() => cancel(confirmed.code)}
-                      className="px-4 py-3.5 font-mono text-xs tracking-[0.18em] text-sage uppercase underline decoration-sage/40 underline-offset-4 transition-colors hover:text-blood hover:decoration-blood/50"
+                      className="px-4 py-3 font-mono text-xs tracking-[0.18em] text-sage uppercase underline decoration-sage/40 underline-offset-4 transition-colors hover:text-blood hover:decoration-blood/50"
                     >
-                      Mejor no, cancelar
+                      Cancelar
                     </button>
                   </div>
                 </div>

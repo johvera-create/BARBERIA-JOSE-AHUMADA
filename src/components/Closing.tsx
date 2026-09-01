@@ -1,4 +1,4 @@
-import { ADDRESS, HOURS, PHONE, PHONE_WA, TESTIMONIALS, getOpenState } from "../data";
+import { ADDRESS, EMAIL, HOURS, PHONE, PHONE_WA, TESTIMONIALS, getOpenState } from "../data";
 import { useNow } from "../hooks";
 import { ArrowRight, Chat, Clock, Pin, Star } from "./icons";
 import { Reveal, SectionHead } from "./Chrome";
@@ -216,7 +216,7 @@ export function Visit() {
                   <Chat className="w-4" /> {PHONE}
                 </a>
                 <a
-                  href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent("Hola, vengo del sitio web 👋")}`}
+                  href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent("Hola José, quiero consultar por una hora (Studio / Domicilio / Barbería) 🙌")}`}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-center gap-2 bg-brass px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(216,162,60,0.3)]"
@@ -224,13 +224,10 @@ export function Visit() {
                   <Chat className="w-4" /> WhatsApp
                 </a>
                 <a
-                  href="https://maps.google.com/?q=Aldunate+363,+La+Calera,+Valpara%C3%ADso,+Chile"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center justify-center gap-2 border border-bone/30 px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"
+                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("Consulta por horas - Barbería José Ahumada")}`}
+                  className="flex items-center justify-center gap-2 border border-bone/30 px-4 py-3 font-mono text-xs font-bold tracking-[0.16em] text-bone uppercase transition-all hover:border-blood hover:text-blood"
                 >
-                  Cómo llegar
-                  <ArrowRight className="w-4 transition-transform group-hover:translate-x-1" />
+                  Correo ↗
                 </a>
               </div>
             </div>

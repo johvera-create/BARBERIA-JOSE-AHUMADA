@@ -65,8 +65,9 @@ export interface Modality {
 }
 
 export const MODALITIES: Modality[] = [
-  { id: "barberia", nombre: "En la barbería", alias: "Aldunate 363", desc: "En el local de La Calera, Aldunate 363: sillón, buen café y cero apuro.", iniciales: "LC" },
-  { id: "domicilio", nombre: "A domicilio", alias: "José va a ti", desc: "José va a tu casa por La Calera y alrededores. El traslado se coordina al agendar.", iniciales: "AD" },
+  { id: "barberia", nombre: "En la barbería (Weibook)", alias: "Aldunate 363", desc: "En el local de Aldunate 363: sillón, buen café y cero apuro. Agendamiento online directo vía Weibook.", iniciales: "LC" },
+  { id: "studio", nombre: "Authentic Studio (En su casa)", alias: "Estudio Privado", desc: "Atención privada, tranquila y 100% personalizada en el estudio particular de José. Reserva exclusiva vía WhatsApp/Correo.", iniciales: "AS" },
+  { id: "domicilio", nombre: "A domicilio (José va a ti)", alias: "En tu casa", desc: "José va directo a tu casa por La Calera y comunas aledañas con todas sus herramientas. Se coordina previamente.", iniciales: "AD" },
 ];
 
 /* ---------------- horarios ---------------- */
@@ -89,8 +90,9 @@ export const HOURS: DayHours[] = [
 ];
 
 export const ADDRESS = "Aldunate 363 · La Calera, Región de Valparaíso";
-export const PHONE = "+56 9 8765 4321";
-export const PHONE_WA = "56987654321";
+export const EMAIL = "joseaahumadaperez@gmail.com";
+export const PHONE = "+56 9 6258 1006";
+export const PHONE_WA = "56962581006";
 export const WEIBOOK_URL = "https://book.weibook.co/profile/pos5yZHTs";
 
 /* ---------------- helpers de fechas y horas ---------------- */

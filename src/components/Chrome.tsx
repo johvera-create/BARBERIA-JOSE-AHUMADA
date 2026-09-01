@@ -216,21 +216,17 @@ export function Footer() {
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-sage">
               Barbería con oficio de peluquería de antes: tijera clásica, degradé fino y buena
-              conversación. Estamos en Aldunate 363, La Calera — y si no puedes venir, José va a tu
-              casa a domicilio.
+              conversación. Atención en Barbería (Aldunate 363), en su <strong>Authentic Studio</strong> particular y <strong>a domicilio</strong>.
             </p>
             <div className="mt-6 flex gap-5 font-mono text-xs tracking-[0.18em] uppercase">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-bone/70 transition-colors hover:text-brass">
                 Instagram ↗
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-bone/70 transition-colors hover:text-brass">
-                Facebook ↗
-              </a>
               <a
-                href={`https://wa.me/${PHONE_WA}`}
+                href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent("Hola José, vengo de tu sitio web 🙌")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="text-bone/70 transition-colors hover:text-brass"
+                className="text-brass transition-colors hover:text-flour font-bold"
               >
                 WhatsApp ↗
               </a>
@@ -238,15 +234,17 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-5 font-mono text-xs tracking-[0.28em] text-blood uppercase">La casa</p>
+            <p className="mb-5 font-mono text-xs tracking-[0.28em] text-blood uppercase">Modalidades</p>
             <ul className="space-y-3 text-sm text-bone/80">
-              {LINKS.concat({ href: "#agenda", label: "Agendar hora" }).map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="transition-colors hover:text-brass">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brass" /> Barbería Aldunate 363
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brass" /> Authentic Studio (Casa)
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brass" /> Servicio a Domicilio
+              </li>
             </ul>
           </div>
 
@@ -269,10 +267,13 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-5 font-mono text-xs tracking-[0.28em] text-blood uppercase">Contacto</p>
+            <p className="mb-5 font-mono text-xs tracking-[0.28em] text-blood uppercase">Contacto Directo</p>
             <p className="text-sm leading-relaxed text-bone/80">{ADDRESS}</p>
-            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="mt-3 block text-sm text-bone/80 transition-colors hover:text-brass">
+            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="mt-3 block text-sm text-brass font-bold transition-colors hover:text-flour">
               {PHONE}
+            </a>
+            <a href={`mailto:${EMAIL}`} className="mt-1 block text-xs text-bone/70 transition-colors hover:text-brass">
+              {EMAIL}
             </a>
             <a
               href={WEIBOOK_URL}
