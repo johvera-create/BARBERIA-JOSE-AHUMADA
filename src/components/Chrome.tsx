@@ -120,8 +120,8 @@ export function Nav() {
     >
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="group flex items-center gap-3" aria-label="Volver arriba">
-          <span className="grid h-11 w-11 place-items-center rounded-full border-2 border-brass/80 bg-pine transition-transform duration-300 group-hover:rotate-12">
-            <Scissors className="w-5 text-brass" />
+          <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-brass/80 bg-pine shadow-md transition-transform duration-300 group-hover:scale-105">
+            <img src="/logo.jpg" alt="José Ahumada Logo" className="h-full w-full object-cover" />
           </span>
           <span className="leading-none">
             <span className="font-display block text-lg tracking-[0.06em] text-flour">JOSÉ AHUMADA</span>
@@ -199,8 +199,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 pt-16 pb-8 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <div className="flex items-start gap-4">
-              <BarberPole className="h-24 w-5" />
+            <div className="flex items-center gap-4">
+              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-brass/80 bg-pine shadow-md">
+                <img src="/logo.jpg" alt="José Ahumada Logo" className="h-full w-full object-cover" />
+              </span>
               <div>
                 <p className="font-display text-2xl tracking-[0.05em] text-flour">JOSÉ AHUMADA</p>
                 <p className="mt-1 font-mono text-[10px] tracking-[0.3em] text-sage uppercase">
