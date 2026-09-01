@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { useReveal, useScrolled } from "../hooks";
-import { ADDRESS, HOURS, PHONE, PHONE_WA, WEIBOOK_URL } from "../data";
+import { ADDRESS, EMAIL, HOURS, PHONE, PHONE_WA, WEIBOOK_URL } from "../data";
 import { Diamond, Scissors, XMark } from "./icons";
 
 /* ---------- grano de película sobre toda la página ---------- */
