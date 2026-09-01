@@ -90,7 +90,7 @@ export const HOURS: DayHours[] = [
 ];
 
 export const ADDRESS = "Aldunate 363 · La Calera, Región de Valparaíso";
-export const EMAIL = "joseaahumadaperez@gmail.com";
+export const EMAIL = "verajohan689@gmail.com";
 export const PHONE = "+56 9 6258 1006";
 export const PHONE_WA = "56962581006";
 export const WEIBOOK_URL = "https://book.weibook.co/profile/pos5yZHTs";
