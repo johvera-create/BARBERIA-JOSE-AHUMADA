@@ -282,8 +282,8 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const STATS = [
-  { value: 2023, suffix: "", label: "nació la barbería", fixed: true },
-  { value: 2100, suffix: "+", label: "cortes y contando" },
-  { value: 2, suffix: "", label: "modalidades: barbería y a domicilio" },
-  { value: 4.9, suffix: "★", label: "promedio en reseñas", decimal: true },
+  { value: 2023, suffix: "", label: "inicio de trayectoria", fixed: true },
+  { value: 100, suffix: "+", label: "cortes y clientes atendidos" },
+  { value: 3, suffix: "", label: "modalidades: barbería, studio y domicilio" },
+  { value: 100, suffix: "%", label: "dedicación y técnica" },
 ];

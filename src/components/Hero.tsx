@@ -106,11 +106,11 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] tracking-[0.1em] text-sage uppercase sm:mt-12 sm:gap-x-5 sm:text-xs sm:tracking-[0.12em]">
-            <span className="text-brass">4.9★ en reseñas</span>
+            <span className="text-brass">Técnica a tijera</span>
             <span className="text-blood">◆</span>
-            <span>+2.100 cortes hechos</span>
+            <span>+100 clientes atendidos</span>
             <span className="text-blood">◆</span>
-            <span>Barbería y a domicilio</span>
+            <span>Barbería, Studio y Domicilio</span>
           </div>
         </div>
 

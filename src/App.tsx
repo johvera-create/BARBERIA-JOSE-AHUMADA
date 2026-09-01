@@ -28,7 +28,6 @@ export default function App() {
         <About />
         <Gallery />
         <Booking />
-        <Testimonials />
         <Visit />
       </main>
       <Footer />

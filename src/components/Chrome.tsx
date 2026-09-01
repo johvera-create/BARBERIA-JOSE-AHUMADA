@@ -99,13 +99,12 @@ export function SectionHead({
   );
 }
 
-/* ---------- navegación ---------- */
 const LINKS = [
-  { href: "#pizarra", label: "La pizarra" },
-  { href: "#casa", label: "La casa" },
-  { href: "#taller", label: "El taller" },
-  { href: "#clientela", label: "La clientela" },
-  { href: "#visita", label: "Visítanos" },
+  { href: "#pizarra", label: "Servicios" },
+  { href: "#casa", label: "El Barbero" },
+  { href: "#taller", label: "Galería" },
+  { href: "#agenda", label: "Agendar" },
+  { href: "#visita", label: "Contacto" },
 ];
 
 export function Nav() {
