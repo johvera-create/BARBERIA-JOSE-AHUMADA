@@ -7,6 +7,7 @@ import {
   getSlots,
   longDate,
   makeCode,
+  WEIBOOK_URL,
   type Modality,
   type DayInfo,
   type Service,
@@ -262,8 +263,35 @@ export function Booking() {
               Agenda tu <span className="text-blood">hora</span>
             </>
           }
-          note="Eliges servicio, modalidad y horario; José te guarda el sillón. En la barbería de Aldunate 363, La Calera — o en tu propia casa."
+          note="Atención en el sillón de Aldunate 363 o a domicilio. Puedes agendar directamente en nuestra plataforma o a través de Weibook."
         />
+
+        {/* Banner destacado de Weibook */}
+        <Reveal className="mb-8 border border-brass/50 bg-moss/60 p-5 sm:p-6">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center border-2 border-brass bg-pine text-brass">
+                <Scissors className="w-6" />
+              </span>
+              <div>
+                <p className="font-display text-lg tracking-wide text-flour uppercase sm:text-xl">
+                  ¿Prefieres agendar vía <span className="text-brass">Weibook</span>?
+                </p>
+                <p className="text-xs text-sage sm:text-sm">
+                  Si ya tienes tu cuenta de Weibook, puedes reservar tu turno con José directamente en su app.
+                </p>
+              </div>
+            </div>
+            <a
+              href={WEIBOOK_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="flex shrink-0 items-center gap-2 border-2 border-brass bg-brass px-5 py-3 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(216,162,60,0.35)]"
+            >
+              Abrir en Weibook ↗
+            </a>
+          </div>
+        </Reveal>
 
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_360px] lg:gap-10 xl:grid-cols-[1fr_400px] xl:gap-14">
           {/* -------- asistente -------- */}

@@ -102,6 +102,7 @@ export const HOURS: DayHours[] = [
 export const ADDRESS = "Aldunate 363 · La Calera, Región de Valparaíso";
 export const PHONE = "+56 9 8765 4321";
 export const PHONE_WA = "56987654321";
+export const WEIBOOK_URL = "https://weibook.cl";
 
 /* ---------------- helpers de fechas y horas ---------------- */
 
