@@ -58,8 +58,8 @@ export function About() {
           <Reveal className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
             <div className="kenburns relative aspect-[4/5] overflow-hidden border border-fern/60 shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
               <img
-                src="https://image.qwenlm.ai/generated-images/e5d48b42-cc29-438f-bad2-2a63ee1028c8/_result.png"
-                alt="Interior de la peluquería: sillones de cuero y luz cálida"
+                src="/local_barberia.jpg"
+                alt="Interior de la barbería: sillones y estaciones de trabajo"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
@@ -69,12 +69,12 @@ export function About() {
             </div>
             <figure className="absolute -right-2 -bottom-8 w-36 rotate-3 bg-flour p-2 pb-6 shadow-[0_20px_50px_rgba(0,0,0,0.55)] transition-transform duration-500 hover:rotate-0 sm:-right-8 sm:-bottom-10 sm:w-56 sm:p-2.5 sm:pb-8">
               <img
-                src="https://image.qwenlm.ai/generated-images/73246300-7af7-4033-871f-aa58398e159b/_result.png"
-                alt="José Ahumada, el patrón"
+                src="/jose_retrato.jpg"
+                alt="José Ahumada, Barbero & Peluquero"
                 className="aspect-[4/5] w-full object-cover"
               />
               <figcaption className="mt-2 text-center font-mono text-[9px] tracking-[0.16em] text-ink/65 uppercase sm:text-[10px] sm:tracking-[0.2em]">
-                José Ahumada, tijera en mano
+                José Ahumada
               </figcaption>
             </figure>
             <span className="absolute -top-3 left-6 h-5 w-16 -rotate-6 bg-bone/25 backdrop-blur-[1px] sm:left-10 sm:h-6 sm:w-20" aria-hidden />
@@ -142,11 +142,9 @@ export function About() {
 /* ---------------- galería: el taller ---------------- */
 
 const SHOTS = [
-  { src: "https://image.qwenlm.ai/generated-images/e5d48b42-cc29-438f-bad2-2a63ee1028c8/_result.png", cap: "La sala, un sábado cualquiera", cls: "md:col-span-2 -rotate-1", w: "aspect-[16/9]" },
-  { src: "https://image.qwenlm.ai/generated-images/729d21b7-78e4-48b2-8d71-435e4b58ca52/_result.png", cap: "Los fierros del oficio", cls: "rotate-2 md:translate-y-6", w: "aspect-[4/5]" },
-  { src: "https://image.qwenlm.ai/generated-images/f4a44337-fd2b-4eff-9c42-66f9e4bd74d7/_result.png", cap: "Fade en plena faena", cls: "-rotate-2 md:-translate-y-2", w: "aspect-[4/5]" },
-  { src: "https://image.qwenlm.ai/generated-images/c0a6850e-4335-4ad7-8641-70c9e2adf8ee/_result.png", cap: "Tónicos y pomadas de la repisa", cls: "rotate-1 md:translate-y-8", w: "aspect-[4/5]" },
-  { src: "https://image.qwenlm.ai/generated-images/73246300-7af7-4033-871f-aa58398e159b/_result.png", cap: "El patrón en su elemento", cls: "-rotate-1 md:translate-y-2", w: "aspect-[4/5]" },
+  { src: "/jose_cortando.jpg", cap: "José en acción: corte y perfilado", cls: "md:col-span-2 -rotate-1", w: "aspect-[16/9]" },
+  { src: "/local_barberia.jpg", cap: "El local en Aldunate 363", cls: "rotate-2 md:translate-y-6", w: "aspect-[4/5]" },
+  { src: "/jose_retrato.jpg", cap: "José Ahumada, Barbero Profesional", cls: "-rotate-2 md:-translate-y-2", w: "aspect-[4/5]" },
 ];
 
 export function Gallery() {
