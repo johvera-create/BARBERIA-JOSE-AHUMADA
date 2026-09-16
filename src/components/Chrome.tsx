@@ -108,16 +108,24 @@ const LINKS = [
 ];
 
 export function Nav() {
-  const scrolled = useScrolled(50);
+  const scrolled = useScrolled(40);
   const [open, setOpen] = useState(false);
 
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-fern/50 bg-ink/95 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-sm" : "bg-transparent"
+        scrolled
+          ? "pt-3 px-3 sm:px-6"
+          : "pt-0 px-0"
       }`}
     >
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div
+        className={`mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 transition-all duration-300 sm:px-8 ${
+          scrolled
+            ? "rounded-2xl border border-brass/30 bg-ink/85 shadow-[0_16px_40px_rgba(0,0,0,0.6)] backdrop-blur-md"
+            : "border-b border-fern/30 bg-ink/60 backdrop-blur-sm"
+        }`}
+      >
         <a href="#top" className="group flex items-center gap-3" aria-label="Volver arriba">
           <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-brass/80 bg-pine shadow-md transition-transform duration-300 group-hover:scale-105">
             <img src="/logo.jpg" alt="José Ahumada Logo" className="h-full w-full object-cover" />
@@ -143,7 +151,7 @@ export function Nav() {
           ))}
           <a
             href="#agenda"
-            className="group flex items-center gap-2 border-2 border-blood bg-blood px-5 py-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-flour uppercase transition-all duration-200 hover:bg-transparent hover:text-blood active:translate-y-0.5"
+            className="group relative overflow-hidden flex items-center gap-2 border-2 border-blood bg-blood px-5 py-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-flour uppercase transition-all duration-300 hover:shadow-[0_10px_30px_rgba(206,58,40,0.45)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <Scissors className="w-4 transition-transform duration-300 group-hover:rotate-45" />
             Agendar turno

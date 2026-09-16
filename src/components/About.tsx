@@ -2,6 +2,7 @@ import { STATS } from "../data";
 import { useCountUp, useReveal } from "../hooks";
 import { Razor, Scissors, Towel } from "./icons";
 import { Reveal, SectionHead } from "./Chrome";
+import { TiltCard } from "./TiltCard";
 
 function Stat({
   value,
@@ -163,91 +164,99 @@ export function Gallery() {
 
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8 items-start">
           {/* Tarjeta 1: Video en Acción */}
-          <Reveal delay={0} className="md:col-span-2 -rotate-1 mx-auto w-full max-w-sm sm:max-w-none">
-            <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.01] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
-              <span
-                className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
-                aria-hidden
-              />
-              <div className="relative aspect-[16/9] overflow-hidden bg-ink">
-                <video
-                  src="/corte_en_accion.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  className="h-full w-full object-cover"
+          <Reveal delay={0} className="md:col-span-2 mx-auto w-full max-w-sm sm:max-w-none">
+            <TiltCard maxTilt={6} glare={true}>
+              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300">
+                <span
+                  className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
+                  aria-hidden
                 />
-              </div>
-              <figcaption className="mt-3 flex items-center justify-between px-2 font-mono text-[10px] tracking-[0.22em] text-ink/75 uppercase">
-                <span>📹 En acción: detalle de corte y degradé</span>
-                <span className="text-blood font-bold">● Video en vivo</span>
-              </figcaption>
-            </figure>
+                <div className="relative aspect-[16/9] overflow-hidden bg-ink">
+                  <video
+                    src="/corte_en_accion.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 flex items-center justify-between px-2 font-mono text-[10px] tracking-[0.22em] text-ink/75 uppercase">
+                  <span>📹 En acción: detalle de corte y degradé</span>
+                  <span className="text-blood font-bold">● Video en vivo</span>
+                </figcaption>
+              </figure>
+            </TiltCard>
           </Reveal>
 
           {/* Tarjeta 2: Foto de José cortando */}
-          <Reveal delay={100} className="rotate-2 md:translate-y-4 mx-auto w-full max-w-sm sm:max-w-none">
-            <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.02] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
-              <span
-                className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
-                aria-hidden
-              />
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src="/jose_cortando.jpg"
-                  alt="José en acción: corte y perfilado"
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          <Reveal delay={100} className="md:translate-y-4 mx-auto w-full max-w-sm sm:max-w-none">
+            <TiltCard maxTilt={10} glare={true}>
+              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300">
+                <span
+                  className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
+                  aria-hidden
                 />
-              </div>
-              <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
-                Perfilado y barba
-              </figcaption>
-            </figure>
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src="/jose_cortando.jpg"
+                    alt="José en acción: corte y perfilado"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
+                  Perfilado y barba
+                </figcaption>
+              </figure>
+            </TiltCard>
           </Reveal>
 
           {/* Tarjeta 3: Local de la barbería */}
-          <Reveal delay={150} className="-rotate-2 mx-auto w-full max-w-sm sm:max-w-none">
-            <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.02] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
-              <span
-                className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
-                aria-hidden
-              />
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src="/local_barberia.jpg"
-                  alt="El local en Aldunate 363"
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          <Reveal delay={150} className="mx-auto w-full max-w-sm sm:max-w-none">
+            <TiltCard maxTilt={10} glare={true}>
+              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300">
+                <span
+                  className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
+                  aria-hidden
                 />
-              </div>
-              <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
-                El sillón en Aldunate 363
-              </figcaption>
-            </figure>
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src="/local_barberia.jpg"
+                    alt="El local en Aldunate 363"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
+                  El sillón en Aldunate 363
+                </figcaption>
+              </figure>
+            </TiltCard>
           </Reveal>
 
           {/* Tarjeta 4: Retrato de José */}
-          <Reveal delay={200} className="rotate-1 md:col-span-2 mx-auto w-full max-w-sm sm:max-w-none">
-            <figure className="group relative bg-flour p-3 pb-4 shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:scale-[1.01] hover:rotate-0 hover:shadow-[0_28px_70px_rgba(0,0,0,0.6)]">
-              <span
-                className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
-                aria-hidden
-              />
-              <div className="aspect-[16/9] overflow-hidden">
-                <img
-                  src="/jose_retrato.jpg"
-                  alt="José Ahumada, Barbero Profesional"
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          <Reveal delay={200} className="md:col-span-2 mx-auto w-full max-w-sm sm:max-w-none">
+            <TiltCard maxTilt={6} glare={true}>
+              <figure className="group relative bg-flour p-3 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300">
+                <span
+                  className="absolute -top-2.5 left-1/2 z-10 h-5 w-16 -translate-x-1/2 -rotate-3 bg-bone/60 shadow-sm"
+                  aria-hidden
                 />
-              </div>
-              <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
-                José Ahumada · Barbero & Peluquero Profesional
-              </figcaption>
-            </figure>
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src="/jose_retrato.jpg"
+                    alt="José Ahumada, Barbero Profesional"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="mt-3 text-center font-mono text-[10px] tracking-[0.22em] text-ink/65 uppercase">
+                  José Ahumada · Barbero & Peluquero Profesional
+                </figcaption>
+              </figure>
+            </TiltCard>
           </Reveal>
         </div>
       </div>

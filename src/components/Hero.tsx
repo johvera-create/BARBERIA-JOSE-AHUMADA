@@ -3,6 +3,7 @@ import { getOpenState, nextAvailable, HOURS, WEIBOOK_URL } from "../data";
 import { useNow } from "../hooks";
 import { ArrowRight, Scissors } from "./icons";
 import { BarberPole } from "./Chrome";
+import { TiltCard } from "./TiltCard";
 
 function TicketBarcode() {
   const bars = [3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 1, 3, 4, 1, 2, 1, 3, 2, 1, 4, 1, 2];
@@ -112,76 +113,78 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ---- columna del ticket ---- */}
+        {/* ---- columna del ticket con física 3D ---- */}
         <div className="relative mt-4 flex justify-center lg:mt-0 lg:justify-end lg:pr-8">
           <BarberPole className="absolute -top-4 left-0 hidden h-110 w-7 xl:flex" />
 
-          <div className="group relative w-full max-w-sm rotate-1 bg-bone text-ink shadow-[0_30px_70px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:rotate-0">
-            {/* muescas de ticket */}
-            <span className="absolute top-[164px] -left-3.5 h-7 w-7 rounded-full bg-ink" aria-hidden />
-            <span className="absolute top-[164px] -right-3.5 h-7 w-7 rounded-full bg-ink" aria-hidden />
+          <TiltCard className="w-full max-w-sm" maxTilt={14} glare={true}>
+            <div className="group relative w-full bg-bone text-ink shadow-[0_30px_70px_rgba(0,0,0,0.55)] transition-all duration-300">
+              {/* muescas de ticket */}
+              <span className="absolute top-[164px] -left-3.5 h-7 w-7 rounded-full bg-ink z-20" aria-hidden />
+              <span className="absolute top-[164px] -right-3.5 h-7 w-7 rounded-full bg-ink z-20" aria-hidden />
 
-            <div className="px-5 pt-6 pb-5 sm:px-7 sm:pt-7">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase">
-                    Peluquería J. Ahumada
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] tracking-[0.22em] text-ink/55 uppercase">
-                    La Calera · V Región
-                  </p>
+              <div className="px-5 pt-6 pb-5 sm:px-7 sm:pt-7">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase">
+                      Peluquería J. Ahumada
+                    </p>
+                    <p className="mt-1 font-mono text-[10px] tracking-[0.22em] text-ink/55 uppercase">
+                      La Calera · V Región
+                    </p>
+                  </div>
+                  <p className="font-mono text-xs font-bold text-blood">Nº 0001</p>
                 </div>
-                <p className="font-mono text-xs font-bold text-blood">Nº 0001</p>
+
+                <div className="my-5 border-t-2 border-dashed border-ink/25" />
+
+                <div className="flex items-center gap-2.5">
+                  <span
+                    className={`blink-dot h-2.5 w-2.5 rounded-full ${state.open ? "bg-fern" : "bg-blood"}`}
+                  />
+                  <p className="font-mono text-[13px] font-bold tracking-wide uppercase">{state.msg}</p>
+                </div>
+
+                <dl className="mt-5 space-y-2.5 font-mono text-[12px]">
+                  <div className="flex justify-between gap-4">
+                    <dt className="tracking-[0.18em] text-ink/55 uppercase">Hoy</dt>
+                    <dd className="text-right font-bold">
+                      {today.open ? `${today.open} – ${today.close}` : "cerrado"}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="tracking-[0.18em] text-ink/55 uppercase">Turno libre</dt>
+                    <dd className="text-right font-bold text-blood">{nextAvailable()}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="tracking-[0.18em] text-ink/55 uppercase">Barbería</dt>
+                    <dd className="text-right font-bold">Aldunate 363 · La Calera</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="tracking-[0.18em] text-ink/55 uppercase">¿A domicilio?</dt>
+                    <dd className="text-right font-bold">Sí, va a tu casa</dd>
+                  </div>
+                </dl>
               </div>
 
-              <div className="my-5 border-t-2 border-dashed border-ink/25" />
-
-              <div className="flex items-center gap-2.5">
-                <span
-                  className={`blink-dot h-2.5 w-2.5 rounded-full ${state.open ? "bg-fern" : "bg-blood"}`}
-                />
-                <p className="font-mono text-[13px] font-bold tracking-wide uppercase">{state.msg}</p>
+              <div className="border-t-2 border-dashed border-ink/25 px-5 py-5 sm:px-7">
+                <a
+                  href="#agenda"
+                  className="flex w-full items-center justify-center gap-2 bg-ink py-3.5 font-mono text-xs font-bold tracking-[0.24em] text-flour uppercase transition-all duration-300 hover:bg-blood hover:shadow-[0_10px_25px_rgba(206,58,40,0.4)] active:scale-[0.98]"
+                >
+                  <Scissors className="w-4" />
+                  Agendar turno
+                </a>
+                <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-ink/50 uppercase">
+                  Atención profesional · Reserva previa confirmada
+                </p>
               </div>
 
-              <dl className="mt-5 space-y-2.5 font-mono text-[12px]">
-                <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Hoy</dt>
-                  <dd className="text-right font-bold">
-                    {today.open ? `${today.open} – ${today.close}` : "cerrado"}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Turno libre</dt>
-                  <dd className="text-right font-bold text-blood">{nextAvailable()}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">Barbería</dt>
-                  <dd className="text-right font-bold">Aldunate 363 · La Calera</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="tracking-[0.18em] text-ink/55 uppercase">¿A domicilio?</dt>
-                  <dd className="text-right font-bold">Sí, va a tu casa</dd>
-                </div>
-              </dl>
+              <div className="px-5 pb-6 sm:px-7">
+                <TicketBarcode />
+              </div>
             </div>
-
-            <div className="border-t-2 border-dashed border-ink/25 px-5 py-5 sm:px-7">
-              <a
-                href="#agenda"
-                className="flex w-full items-center justify-center gap-2 bg-ink py-3.5 font-mono text-xs font-bold tracking-[0.24em] text-flour uppercase transition-colors duration-200 hover:bg-blood"
-              >
-                <Scissors className="w-4" />
-                Agendar turno
-              </a>
-              <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-ink/50 uppercase">
-                Atención profesional · Reserva previa confirmada
-              </p>
-            </div>
-
-            <div className="px-5 pb-6 sm:px-7">
-              <TicketBarcode />
-            </div>
-          </div>
+          </TiltCard>
 
           <RotatingStamp />
         </div>

@@ -17,6 +17,7 @@ import {
 } from "../data";
 import { ArrowRight, Check, Scissors, XMark } from "./icons";
 import { Reveal, SectionHead } from "./Chrome";
+import { TiltCard } from "./TiltCard";
 
 /* ---------------- tipos ---------------- */
 
@@ -232,7 +233,23 @@ export function Booking() {
 
     setIsSubmitting(true);
     try {
-      // Envío automático e invisible a tu correo verajohan681@gmail.com
+      // 1. Envío directo al CRM PYME Flow (Organización Barbería)
+      await fetch("https://pymeflowapp.cl/api/v1/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: booking.nombre,
+          phone: booking.telefono,
+          serviceTitle: `${booking.serviceName} (${booking.modalityName})`,
+          date: booking.dayISO,
+          time: booking.time,
+          price: booking.precio || 0,
+          notes: `Código: ${booking.code} | Total: ${formatCLP(booking.precio)} | Nota: ${booking.nota || "Sin notas"}`,
+          orgSlug: "barberia",
+        }),
+      }).catch((e) => console.log("CRM booking catch:", e));
+
+      // 2. Envío de respaldo por correo
       await fetch("https://formsubmit.co/ajax/verajohan681@gmail.com", {
         method: "POST",
         headers: {
@@ -253,7 +270,7 @@ export function Booking() {
           Total: formatCLP(booking.precio),
           Nota_Adicional: booking.nota || "Ninguna",
         }),
-      });
+      }).catch((e) => console.log("Formsubmit catch:", e));
     } catch (e) {
       console.log("Notificación enviada", e);
     } finally {
@@ -310,73 +327,81 @@ export function Booking() {
         {/* 2 Opciones visuales claras: Barbería (Weibook) vs Authentic Studio / Domicilio */}
         <div className="mb-12 grid gap-6 md:grid-cols-2">
           {/* Tarjeta 1: Barbería La Calera */}
-          <Reveal className="flex flex-col justify-between border-2 border-fern/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-brass/70">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-brass bg-moss text-brass">
-                  <Scissors className="w-6" />
-                </span>
-                <span className="border border-brass/40 bg-brass/10 px-3 py-1 font-mono text-[10px] tracking-wider text-brass uppercase">
-                  Horario de Día
-                </span>
+          <Reveal className="h-full">
+            <TiltCard className="h-full" maxTilt={8} glare={true}>
+              <div className="flex h-full flex-col justify-between border-2 border-fern/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-brass/70">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-brass bg-moss text-brass">
+                      <Scissors className="w-6" />
+                    </span>
+                    <span className="border border-brass/40 bg-brass/10 px-3 py-1 font-mono text-[10px] tracking-wider text-brass uppercase">
+                      Horario de Día
+                    </span>
+                  </div>
+                  <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
+                    En la Barbería (La Calera)
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-sage">
+                    Atención en local oficial de <strong>Aldunate 363</strong>. Sincronizado en vivo con la app de la barbería.
+                  </p>
+                  <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Lunes a Viernes: 10:00 a 20:00 hrs
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Sábados: 09:00 a 18:00 hrs
+                    </li>
+                  </ul>
+                </div>
+                <a
+                  href={WEIBOOK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 flex items-center justify-center gap-2 border-2 border-brass bg-brass py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(216,162,60,0.35)] active:translate-y-0"
+                >
+                  📅 Agendar en Weibook en Vivo ↗
+                </a>
               </div>
-              <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
-                En la Barbería (La Calera)
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-sage">
-                Atención en local oficial de <strong>Aldunate 363</strong>. Sincronizado en vivo con la app de la barbería.
-              </p>
-              <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Lunes a Viernes: 10:00 a 20:00 hrs
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 bg-brass rounded-full" /> Sábados: 09:00 a 18:00 hrs
-                </li>
-              </ul>
-            </div>
-            <a
-              href={WEIBOOK_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 flex items-center justify-center gap-2 border-2 border-brass bg-brass py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-ink uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(216,162,60,0.35)]"
-            >
-              📅 Agendar en Weibook en Vivo ↗
-            </a>
+            </TiltCard>
           </Reveal>
 
           {/* Tarjeta 2: Authentic Studio / Domicilio */}
-          <Reveal delay={100} className="flex flex-col justify-between border-2 border-blood/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-blood">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-blood bg-moss text-flour">
-                  <Scissors className="w-6 text-blood" />
-                </span>
-                <span className="border border-blood/40 bg-blood/10 px-3 py-1 font-mono text-[10px] tracking-wider text-blood uppercase">
-                  Noches & Especial
-                </span>
+          <Reveal delay={100} className="h-full">
+            <TiltCard className="h-full" maxTilt={8} glare={true}>
+              <div className="flex h-full flex-col justify-between border-2 border-blood/80 bg-pine/90 p-6 sm:p-8 transition-all hover:border-blood">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-blood bg-moss text-flour">
+                      <Scissors className="w-6 text-blood" />
+                    </span>
+                    <span className="border border-blood/40 bg-blood/10 px-3 py-1 font-mono text-[10px] tracking-wider text-blood uppercase">
+                      Noches & Especial
+                    </span>
+                  </div>
+                  <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
+                    Authentic Studio & Domicilio
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-sage">
+                    En el <strong>estudio privado de José (en su casa de noche)</strong> o servicio a domicilio personalizado.
+                  </p>
+                  <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Turnos nocturnos: 20:00 a 23:00 hrs
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Reserva automática a mi correo y WhatsApp
+                    </li>
+                  </ul>
+                </div>
+                <a
+                  href="#formulario-studio"
+                  className="mt-6 flex items-center justify-center gap-2 border-2 border-blood bg-blood py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-flour uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(206,58,40,0.35)] active:translate-y-0"
+                >
+                  📋 Reservar Studio / Domicilio ↓
+                </a>
               </div>
-              <h3 className="font-display mt-5 text-2xl tracking-wide text-flour uppercase sm:text-3xl">
-                Authentic Studio & Domicilio
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-sage">
-                En el <strong>estudio privado de José (en su casa de noche)</strong> o servicio a domicilio personalizado.
-              </p>
-              <ul className="mt-4 space-y-2 font-mono text-xs text-bone/80">
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Turnos nocturnos: 20:00 a 23:00 hrs
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 bg-blood rounded-full" /> Reserva automática a mi correo y WhatsApp
-                </li>
-              </ul>
-            </div>
-            <a
-              href="#formulario-studio"
-              className="mt-6 flex items-center justify-center gap-2 border-2 border-blood bg-blood py-3.5 font-mono text-xs font-bold tracking-[0.16em] text-flour uppercase transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(206,58,40,0.35)]"
-            >
-              📋 Reservar Studio / Domicilio ↓
-            </a>
+            </TiltCard>
           </Reveal>
         </div>
 

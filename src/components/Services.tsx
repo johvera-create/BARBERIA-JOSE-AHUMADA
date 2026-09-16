@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import { CATEGORIES, formatCLP, PHONE_WA, WEIBOOK_URL } from "../data";
 import { Chair, Comb, Mustache, Razor, Scissors, Spray } from "./icons";
 import { Reveal, SectionHead } from "./Chrome";
+import { TiltCard } from "./TiltCard";
 
 const ICONS: Record<string, ComponentType<{ className?: string }>> = {
   cortes: Scissors,
@@ -28,7 +29,8 @@ export function Services() {
             const Icon = ICONS[cat.id] ?? Scissors;
             return (
               <Reveal key={cat.id} delay={ci * 90}>
-                <div className="group/cat h-full border border-fern/60 bg-pine/80 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brass/60 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] sm:p-8">
+                <TiltCard className="h-full" maxTilt={8} glare={true}>
+                  <div className="group/cat h-full border border-fern/60 bg-pine/80 p-7 transition-all duration-300 hover:border-brass/70 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)] sm:p-8">
                   <div className="mb-6 flex items-center gap-4">
                     <span className="grid h-12 w-12 shrink-0 place-items-center border border-brass/50 text-brass transition-colors duration-300 group-hover/cat:bg-brass group-hover/cat:text-ink">
                       <Icon className="w-6" />
@@ -84,7 +86,8 @@ export function Services() {
                     ))}
                   </ul>
                 </div>
-              </Reveal>
+              </TiltCard>
+            </Reveal>
             );
           })}
         </div>
