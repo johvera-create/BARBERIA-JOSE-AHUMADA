@@ -24,7 +24,7 @@ Este archivo documenta la arquitectura actual, el despliegue en producción y la
   - Se crea o actualiza el Contacto en la organización de Barbería.
   - Se crea un Trato (Deal) en la etapa 'Cita Agendada' con el valor real del servicio (ej. $12.000) de forma 100% aislada de PYME Flow o Audicontab.
 - **Respaldo por correo**:
-  - https://formsubmit.co/ajax/verajohan681@gmail.com
+  - https://formsubmit.co/ajax/joseaahumadaperez@gmail.com
 
 ---
 

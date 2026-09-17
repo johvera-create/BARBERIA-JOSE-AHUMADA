@@ -249,8 +249,8 @@ export function Booking() {
         }),
       }).catch((e) => console.log("CRM booking catch:", e));
 
-      // 2. Envío de respaldo por correo
-      await fetch("https://formsubmit.co/ajax/verajohan681@gmail.com", {
+      // 2. Envío de respaldo por correo al barbero
+      await fetch("https://formsubmit.co/ajax/joseaahumadaperez@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
